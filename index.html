@@ -66,26 +66,42 @@ nav.menu a:hover::after{width:100%}
     radial-gradient(900px 520px at 8% 108%, rgba(250,93,41,.10), transparent 55%),
     var(--bg);
 }
-.hero .wrap{width:100%;position:relative;z-index:2}
-/* hero background video */
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
-.hero-scrim{position:absolute;inset:0;z-index:1;background:
-  linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.30) 42%,rgba(0,0,0,.62) 100%),
-  radial-gradient(900px 520px at 50% 120%,rgba(0,0,0,.45),transparent 60%);}
-/* text over video */
-.hero h1,.hero .sub{color:#fff}
-.hero .sub{color:rgba(255,255,255,.94)}
-.hero .scroll-hint{color:rgba(255,255,255,.85)}
-.hero .scroll-hint::after{background:linear-gradient(rgba(255,255,255,.85),transparent)}
-/* venue label */
+.hero .wrap{width:100%}
+/* hero two-column: text + small video card */
+.hero-grid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:56px}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}}
+.hero-media{
+  flex-shrink:0;width:clamp(200px,23vw,300px);
+  opacity:0;animation:fadeUp 1s var(--ease) .55s forwards;
+}
+.hero-media figure{
+  position:relative;border-radius:20px;overflow:hidden;
+  aspect-ratio:334/720;background:#000;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 24px 60px rgba(0,0,0,.18);
+}
+.hero-video{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  display:flex;align-items:center;gap:8px;
+  padding:22px 16px 14px;
+  background:linear-gradient(transparent,rgba(0,0,0,.72));
+  color:#fff;font-size:13.5px;font-weight:600;letter-spacing:-0.01em;
+}
+.hero-media figcaption .pin{font-size:15px}
+@media(max-width:900px){
+  .hero-media{width:min(300px,72vw);margin:0 auto}
+}
+/* venue label next to title */
 .venue{
-  display:inline-flex;align-items:center;gap:11px;margin-bottom:24px;
-  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
-  backdrop-filter:blur(8px);border-radius:999px;padding:10px 20px;
-  font-size:15px;font-weight:600;color:#fff;letter-spacing:-0.01em;
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;
+  background:var(--white);border:1px solid rgba(0,0,0,.08);
+  border-radius:999px;padding:9px 18px;
+  font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
   opacity:0;animation:fadeUp 1s var(--ease) .4s forwards;
 }
-.venue .pin{font-size:17px}
+.venue .pin{font-size:16px}
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
@@ -272,24 +288,32 @@ footer a:hover{color:var(--accent)}
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-    <source src="Venue.mp4" type="video/mp4" />
-  </video>
-  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="venue"><span class="pin">📍</span> 금산군 추부면 그림같은집</span>
-    <span class="eyebrow"><span class="bar"></span> 2026 · 대전 · 1박 2일 모임</span>
-    <h1>
-      <span class="line"><span>늘벗 11기</span></span>
-      <span class="line"><span>대전에서</span></span>
-      <span class="line"><span><span class="accent">함께</span> 하는 시간</span></span>
-    </h1>
-    <p class="sub">과학의 도시 대전에서 보내는 1박 2일. 도심 투어와 자연 산책, 그리고 온 정성을 담은 파인다이닝까지 — 늘벗 11기가 함께 만드는 특별한 여행에 초대합니다.</p>
-    <div class="facts">
-      <span class="chip"><span class="ic">📅</span> 2026년 · 대전역 집결</span>
-      <span class="chip"><span class="ic">🚐</span> 15인승 밴 대절</span>
-      <span class="chip"><span class="ic">🍽️</span> 정성 가득 파인다이닝</span>
-      <span class="chip"><span class="ic">🙋</span> 대표 이선우</span>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="venue"><span class="pin">📍</span> 금산군 추부면 그림같은집</span>
+        <span class="eyebrow"><span class="bar"></span> 2026 · 대전 · 1박 2일 모임</span>
+        <h1>
+          <span class="line"><span>늘벗 11기</span></span>
+          <span class="line"><span>대전에서</span></span>
+          <span class="line"><span><span class="accent">함께</span> 하는 시간</span></span>
+        </h1>
+        <p class="sub">과학의 도시 대전에서 보내는 1박 2일. 도심 투어와 자연 산책, 그리고 온 정성을 담은 파인다이닝까지 — 늘벗 11기가 함께 만드는 특별한 여행에 초대합니다.</p>
+        <div class="facts">
+          <span class="chip"><span class="ic">📅</span> 2026년 · 대전역 집결</span>
+          <span class="chip"><span class="ic">🚐</span> 15인승 밴 대절</span>
+          <span class="chip"><span class="ic">🍽️</span> 정성 가득 파인다이닝</span>
+          <span class="chip"><span class="ic">🙋</span> 대표 이선우</span>
+        </div>
+      </div>
+      <div class="hero-media">
+        <figure>
+          <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-label="금산군 추부면 그림같은집 숙소 영상">
+            <source src="Venue.mp4" type="video/mp4" />
+          </video>
+          <figcaption><span class="pin">📍</span> 금산군 추부면 그림같은집</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
   <div class="scroll-hint">Scroll</div>
