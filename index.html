@@ -66,7 +66,26 @@ nav.menu a:hover::after{width:100%}
     radial-gradient(900px 520px at 8% 108%, rgba(250,93,41,.10), transparent 55%),
     var(--bg);
 }
-.hero .wrap{width:100%}
+.hero .wrap{width:100%;position:relative;z-index:2}
+/* hero background video */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.30) 42%,rgba(0,0,0,.62) 100%),
+  radial-gradient(900px 520px at 50% 120%,rgba(0,0,0,.45),transparent 60%);}
+/* text over video */
+.hero h1,.hero .sub{color:#fff}
+.hero .sub{color:rgba(255,255,255,.94)}
+.hero .scroll-hint{color:rgba(255,255,255,.85)}
+.hero .scroll-hint::after{background:linear-gradient(rgba(255,255,255,.85),transparent)}
+/* venue label */
+.venue{
+  display:inline-flex;align-items:center;gap:11px;margin-bottom:24px;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(8px);border-radius:999px;padding:10px 20px;
+  font-size:15px;font-weight:600;color:#fff;letter-spacing:-0.01em;
+  opacity:0;animation:fadeUp 1s var(--ease) .4s forwards;
+}
+.venue .pin{font-size:17px}
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
@@ -253,7 +272,12 @@ footer a:hover{color:var(--accent)}
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="Venue.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap">
+    <span class="venue"><span class="pin">📍</span> 금산군 추부면 그림같은집</span>
     <span class="eyebrow"><span class="bar"></span> 2026 · 대전 · 1박 2일 모임</span>
     <h1>
       <span class="line"><span>늘벗 11기</span></span>
