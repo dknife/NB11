@@ -248,6 +248,50 @@ section{position:relative;padding:110px 0}
 .prep-card li{position:relative;padding-left:16px;font-size:14px;color:var(--ink2);margin:6px 0}
 .prep-card li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
 
+/* ---------- Notice / 안내장 ---------- */
+.notice{
+  background:
+    radial-gradient(720px 420px at 88% -10%, rgba(6,147,227,.08), transparent 60%),
+    radial-gradient(680px 400px at 6% 110%, rgba(250,93,41,.08), transparent 55%),
+    var(--bg);
+}
+.invite{
+  position:relative;max-width:860px;margin:0 auto;background:var(--white);
+  border-radius:24px;padding:clamp(40px,6vw,68px) clamp(26px,6vw,72px);
+  box-shadow:0 34px 80px rgba(0,0,0,.10);
+  border:1px solid rgba(0,0,0,.06);overflow:hidden;
+}
+.invite::before{content:"";position:absolute;inset:14px;border:1.5px solid rgba(250,93,41,.26);border-radius:15px;pointer-events:none}
+.invite::after{content:"";position:absolute;top:-70px;right:-70px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(6,147,227,.10),transparent 70%);pointer-events:none}
+.inv-inner{position:relative;z-index:1}
+.inv-title{text-align:center;font-weight:800;letter-spacing:.3em;font-size:clamp(24px,4.4vw,40px);color:var(--ink);line-height:1.1}
+.inv-eyebrow{text-align:center;color:var(--accent);font-weight:600;letter-spacing:.16em;font-size:13px;text-transform:uppercase;margin-bottom:10px}
+.inv-deco{display:flex;align-items:center;justify-content:center;gap:14px;margin:18px 0 40px}
+.inv-deco .ln{height:1px;width:clamp(40px,12vw,90px);background:linear-gradient(90deg,transparent,rgba(0,0,0,.22))}
+.inv-deco .ln.r{background:linear-gradient(90deg,rgba(0,0,0,.22),transparent)}
+.inv-deco .dm{color:var(--accent);font-size:13px}
+
+.inv-row{display:grid;grid-template-columns:118px 1fr;gap:16px;padding:18px 4px;border-bottom:1px dashed rgba(0,0,0,.13);align-items:baseline}
+.inv-row:first-of-type{border-top:1px dashed rgba(0,0,0,.13)}
+.inv-key{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink);font-size:15px;white-space:nowrap}
+.inv-key .di{color:var(--accent);font-size:12px}
+.inv-val{font-size:16px;color:var(--ink2);font-weight:500;line-height:1.6}
+.inv-val strong{color:var(--ink);font-weight:700}
+.inv-val .place-link{color:var(--cyan);font-weight:600;border-bottom:1px solid rgba(6,147,227,.35)}
+
+.inv-notice{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.inv-notice{grid-template-columns:1fr}}
+.inv-box{background:var(--bg);border-radius:15px;padding:26px;border:1px solid rgba(0,0,0,.05)}
+.inv-box h4{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;margin-bottom:14px;letter-spacing:-0.01em}
+.inv-box h4 .bdg{font-size:11px;font-weight:700;background:var(--accent);color:#fff;padding:4px 11px;border-radius:999px;letter-spacing:.04em}
+.inv-box.dep h4 .bdg{background:var(--cyan)}
+.inv-box ul{list-style:none}
+.inv-box li{position:relative;padding-left:18px;font-size:14px;color:var(--ink2);margin:10px 0;line-height:1.65}
+.inv-box li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.inv-box.dep li::before{background:var(--cyan)}
+.inv-box li strong{color:var(--ink);font-weight:700}
+@media(max-width:640px){.inv-row{grid-template-columns:1fr;gap:4px;padding:16px 4px}.inv-key{white-space:normal}}
+
 /* ---------- CTA / footer ---------- */
 .cta{
   background:linear-gradient(135deg,rgb(6,147,227),rgb(155,81,224));
@@ -277,6 +321,7 @@ footer a:hover{color:var(--accent)}
   <div class="wrap">
     <a href="#top" class="brand"><span class="dot"></span> 늘벗 11기</a>
     <nav class="menu" id="menu">
+      <a href="#notice">안내장</a>
       <a href="#overview">개요</a>
       <a href="#itinerary">일정</a>
       <a href="#dining">미식</a>
@@ -317,6 +362,51 @@ footer a:hover{color:var(--accent)}
     </div>
   </div>
   <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- NOTICE / 안내장 -->
+<section class="notice" id="notice">
+  <div class="wrap">
+    <div class="invite reveal">
+      <div class="inv-inner">
+        <div class="inv-eyebrow">Invitation</div>
+        <h2 class="inv-title">안 내 장</h2>
+        <div class="inv-deco"><span class="ln"></span><span class="dm">◈</span><span class="ln r"></span></div>
+
+        <div class="inv-row">
+          <div class="inv-key"><span class="di">◈</span> 제　목</div>
+          <div class="inv-val"><strong>늘벗 11기 동기회 2026년 모임</strong></div>
+        </div>
+        <div class="inv-row">
+          <div class="inv-key"><span class="di">◈</span> 일　시</div>
+          <div class="inv-val"><strong>2026년 10월 17일(토) ~ 18일(일)</strong> · 1박 2일</div>
+        </div>
+        <div class="inv-row">
+          <div class="inv-key"><span class="di">◈</span> 숙　소</div>
+          <div class="inv-val">금산군 추부면 검한길 37, <span class="place-link">그림같은 집 펜션</span></div>
+        </div>
+
+        <div class="inv-notice">
+          <div class="inv-box">
+            <h4><span class="bdg">집결</span> 모이는 안내</h4>
+            <ul>
+              <li>10/17(토) <strong>13:00 이후</strong> 대전역에 도착하도록 티케팅 권고</li>
+              <li>대전역 집결 · 대기 장소는 <strong>추후 통보</strong></li>
+              <li>15인승 렌트카로 함께 이동 예정 — 가능하면 자차보다 <strong>기차 이용</strong> 권고</li>
+              <li>점심은 자율 (드시고 오셔도 되고, 대전역 도착 후 <strong>성심당 빵</strong>으로 준비 예정)</li>
+            </ul>
+          </div>
+          <div class="inv-box dep">
+            <h4><span class="bdg">해산</span> 돌아가는 안내</h4>
+            <ul>
+              <li>점심 식사 후, <strong>18일 14:00 이후</strong> 귀가 예정</li>
+              <li>귀가 티케팅 시 <strong>14:00 이후 열차</strong>로 참고 바랍니다</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- OVERVIEW -->
