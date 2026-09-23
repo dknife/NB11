@@ -207,6 +207,18 @@ section{position:relative;padding:110px 0}
   .tl-body{border-left:none;padding:0 0 22px}
 }
 
+/* ---------- Jangtaesan photo marquee ---------- */
+.jt-gallery{margin-top:40px}
+.jt-gallery .jt-cap{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink2);margin-bottom:18px}
+.jt-gallery .jt-cap .em{font-size:20px}
+.jt-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.jt-track{display:flex;gap:16px;width:max-content;animation:jt-scroll 60s linear infinite}
+.jt-marquee:hover .jt-track{animation-play-state:paused}
+.jt-track img{height:220px;width:auto;border-radius:var(--radius);object-fit:cover;box-shadow:0 10px 26px rgba(0,0,0,.12);flex:0 0 auto}
+@keyframes jt-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:640px){.jt-track img{height:150px}.jt-track{animation-duration:40s}}
+@media(prefers-reduced-motion:reduce){.jt-track{animation:none}.jt-marquee{overflow-x:auto}}
+
 /* ---------- Wave divider ---------- */
 .wave{line-height:0}
 .wave svg{width:100%;height:120px;display:block}
@@ -401,8 +413,8 @@ footer a:hover{color:var(--accent)}
           <div class="inv-box dep">
             <h4><span class="bdg">해산</span> 돌아가는 안내</h4>
             <ul>
-              <li>점심 식사 후, <strong>18일 14:00 이후</strong> 귀가 예정</li>
-              <li>귀가 티케팅 시 <strong>14:00 이후 열차</strong>로 참고 바랍니다</li>
+              <li>장태산 등반 후, <strong>18일 12:00 이후</strong> 해산 예정</li>
+              <li>귀가 티케팅 시 <strong>12:00 이후 열차</strong>로 참고 바랍니다</li>
             </ul>
           </div>
         </div>
@@ -417,13 +429,13 @@ footer a:hover{color:var(--accent)}
     <div class="sec-head">
       <div class="sec-tag">Overview</div>
       <h2>한눈에 보는 여행</h2>
-      <p>대전역에서 만나 시내 투어와 동물원을 즐기고, 숙소에서 함께 만든 파인다이닝과 캠프파이어로 밤을 보낸 뒤, 장태산 숲길 산책으로 마무리하는 알찬 일정입니다.</p>
+      <p>대전역에서 만나 숙소로 이동해 함께 만든 파인다이닝 만찬과 캠프파이어 여흥으로 밤을 보낸 뒤, 이튿날 아침 식사 후 장태산 등반으로 마무리하고 해산하는 간결한 일정입니다.</p>
     </div>
     <div class="stat-grid">
       <div class="stat"><div class="num">2<small>일</small></div><div class="lab">1박 2일 대전 모임</div></div>
       <div class="stat"><div class="num">15<small>인승</small></div><div class="lab">밴 대절 · 운전 이선우</div></div>
       <div class="stat"><div class="num">3<small>코스</small></div><div class="lab">전채·메인·후식 파인다이닝</div></div>
-      <div class="stat"><div class="num">6<small>+</small></div><div class="lab">주요 투어 스팟</div></div>
+      <div class="stat"><div class="num">🌲</div><div class="lab">장태산 등반</div></div>
     </div>
   </div>
 </section>
@@ -446,42 +458,21 @@ footer a:hover{color:var(--accent)}
     <div class="day-panel show reveal" data-panel="1">
       <div class="tl">
         <div class="tl-row"><div class="tl-time">~ 13:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🚆</span> 대전역 집결</div>
-          <div class="tl-desc">15인승 밴 대절로 한 차로 이동(운전: 이선우). 가능하면 기차를 이용해 대전역에서 모입니다.</div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">13:00~14:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">☕</span> 커피 / 식사</div>
-          <div class="tl-desc"><ul><li>모두 모일 때까지 커피 (성심당 대전역점 빵식)</li><li>점심 식사 (장소 미정)</li></ul></div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">14:00~15:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🏛️</span> 대전 시내 투어</div>
-          <div class="tl-desc">남문 광장, 한빛탑, 여러 연구소, 이글스파크, 세종시, 유성온천 족욕 체험장, 대전시민천문대(별자리) 등.
-            <div style="margin-top:8px"><span class="tag-mini">한빛탑</span><span class="tag-mini">이글스파크</span><span class="tag-mini">유성온천 족욕</span><span class="tag-mini">시민천문대</span></div>
-          </div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">15:00~17:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🦁</span> 대전 동물원</div>
-          <div class="tl-desc">동물원(늑구), 식물원, 퍼레이드, 사파리를 함께 둘러봅니다.</div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">17:00~18:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🎈</span> 숙소 이동 / 휴식</div>
-          <div class="tl-desc">숙소에 환영 플래카드와 캐릭터 풍선인형(꿈돌이·이글스·성심이)으로 기념 사진 준비. 웰컴 스낵(성심당 쿠키 등 애프터눈 티)과 함께 휴식하며 저녁 준비(숯불·스튜 가열).</div>
+          <div class="tl-title"><span class="em">🚆</span> 대전역 픽업 · 숙소 이동</div>
+          <div class="tl-desc">각 지역에서 대전역으로 모입니다. 15인승 밴 대절로 픽업하여(운전: 이선우) 함께 숙소로 이동합니다.</div>
         </div></div>
         <div class="tl-row"><div class="tl-time">18:00~20:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🍽️</span> 저녁 식사 · 파인다이닝</div>
-          <div class="tl-desc"><ul>
+          <div class="tl-title"><span class="em">🍽️</span> 숙소 만찬 · 파인다이닝</div>
+          <div class="tl-desc">숙소에서 함께 준비하는 파인다이닝 만찬.
+            <ul>
             <li><b>전채</b> — 샐러드, 비프스튜</li>
             <li><b>메인</b> — 모듬튀김(새우·야채·오징어), 참치회, 등갈비 바비큐, 풀드포크, 밥, 밑반찬, 두부 두루치기</li>
             <li><b>후식</b> — 과일, 성심당 시루, 커피</li>
           </ul></div>
         </div></div>
-        <div class="tl-row"><div class="tl-time">20:00~22:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🔥</span> 술 / 캠프파이어</div>
-          <div class="tl-desc">술안주로 넛트·과일·과자류와 참치김치찌개. 캠프파이어에서 생선구이와 마시멜로 구이.</div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">22:00~</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🍜</span> 여흥 / 취침</div>
-          <div class="tl-desc">야식은 꿈돌이 라면과 함께.</div>
+        <div class="tl-row"><div class="tl-time">20:00~</div><div class="tl-body">
+          <div class="tl-title"><span class="em">🔥</span> 여흥</div>
+          <div class="tl-desc">캠프파이어와 함께하는 여흥. 술안주로 넛트·과일·과자류와 참치김치찌개, 생선구이와 마시멜로 구이. 야식은 꿈돌이 라면.</div>
         </div></div>
       </div>
     </div>
@@ -489,34 +480,61 @@ footer a:hover{color:var(--accent)}
     <!-- DAY 2 -->
     <div class="day-panel reveal" data-panel="2">
       <div class="tl">
-        <div class="tl-row"><div class="tl-time">~ 08:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🌅</span> 기상</div>
-          <div class="tl-desc">상쾌한 아침을 맞이합니다.</div>
-        </div></div>
         <div class="tl-row"><div class="tl-time">08:00~09:00</div><div class="tl-body">
           <div class="tl-title"><span class="em">🍲</span> 아침 식사</div>
           <div class="tl-desc">북어어묵국, 밥, 밑반찬. 후식으로 커피와 다과.</div>
         </div></div>
         <div class="tl-row"><div class="tl-time">09:00~10:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🚶</span> 아침 산책 / 퇴거 준비</div>
-          <div class="tl-desc">숙소 주변 산책(스트레칭, 체조, 요가 등)으로 몸을 깨웁니다.</div>
+          <div class="tl-title"><span class="em">🚐</span> 장태산 이동</div>
+          <div class="tl-desc">퇴거 준비 후 15인승 밴으로 장태산으로 이동합니다.</div>
         </div></div>
         <div class="tl-row"><div class="tl-time">10:00~12:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🌲</span> 퇴거 / 장태산 이동 · 산책</div>
-          <div class="tl-desc">장태산 메타세쿼이아 숲길 산책. 간식으로 장태산 호떡 등.</div>
+          <div class="tl-title"><span class="em">🌲</span> 장태산 등반</div>
+          <div class="tl-desc">장태산 메타세쿼이아 숲길과 전망대를 오르는 등반. 간식으로 장태산 호떡 등.</div>
         </div></div>
-        <div class="tl-row"><div class="tl-time">12:00~13:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🥘</span> 점심 식사</div>
-          <div class="tl-desc">장태산 입구 식당 (파전, 도토리묵, 비빔밥, 백숙 등).</div>
+        <div class="tl-row"><div class="tl-time">12:00~</div><div class="tl-body">
+          <div class="tl-title"><span class="em">👋</span> 해산</div>
+          <div class="tl-desc">등반 후 각자 귀가하며 해산합니다.</div>
         </div></div>
-        <div class="tl-row"><div class="tl-time">13:00~14:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">☕</span> 커피</div>
-          <div class="tl-desc">장태산 주변 카페에서 여유로운 마무리.</div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">14:00~</div><div class="tl-body">
-          <div class="tl-title"><span class="em">👋</span> 귀가 조치</div>
-          <div class="tl-desc">대전역까지 15인승 밴 운행.</div>
-        </div></div>
+      </div>
+
+      <div class="jt-gallery">
+        <div class="jt-cap"><span class="em">🌲</span> 장태산 자연휴양림 · 메타세쿼이아 숲길</div>
+        <div class="jt-marquee">
+          <div class="jt-track">
+            <img src="Data/jangtae01.jpg" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae02.png" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae03.webp" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae04.webp" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae05.webp" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae06.jpg" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae07.jpg" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae08.webp" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae09.webp" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae10.jpg" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae11.webp" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae12.webp" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae13.jpg" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae14.webp" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/jangtae15.jpg" alt="장태산 풍경" loading="lazy" />
+            <!-- 무한 루프용 복제본 -->
+            <img src="Data/jangtae01.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae02.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae03.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae04.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae05.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae06.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae07.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae08.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae09.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae10.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae11.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae12.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae13.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae14.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/jangtae15.jpg" alt="" aria-hidden="true" loading="lazy" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
