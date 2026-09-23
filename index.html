@@ -211,6 +211,7 @@ section{position:relative;padding:110px 0}
 .jt-gallery{margin-top:40px}
 .jt-gallery .jt-cap{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink2);margin-bottom:18px}
 .jt-gallery .jt-cap .em{font-size:20px}
+.jt-gallery .jt-cap-note{color:var(--muted);font-weight:500}
 .jt-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .jt-track{display:flex;gap:16px;width:max-content;animation:jt-scroll 60s linear infinite}
 .jt-marquee:hover .jt-track{animation-play-state:paused}
@@ -360,7 +361,7 @@ footer a:hover{color:var(--accent)}
         <p class="sub">과학의 도시 대전에서 보내는 1박 2일. 도심 투어와 자연 산책, 그리고 온 정성을 담은 파인다이닝까지 — 늘벗 11기가 함께 만드는 특별한 여행에 초대합니다.</p>
         <div class="facts">
           <span class="chip"><span class="ic">📅</span> 2026년 · 대전역 집결</span>
-          <span class="chip"><span class="ic">🚐</span> 15인승 밴 대절</span>
+          <span class="chip"><span class="ic">🌲</span> 장태산 숲길 등반</span>
           <span class="chip"><span class="ic">🍽️</span> 정성 가득 파인다이닝</span>
           <span class="chip"><span class="ic">🙋</span> 대표 이선우</span>
         </div>
@@ -404,9 +405,9 @@ footer a:hover{color:var(--accent)}
           <div class="inv-box">
             <h4><span class="bdg">집결</span> 모이는 안내</h4>
             <ul>
-              <li>10/17(토) <strong>13:00 이후</strong> 대전역에 도착하도록 티케팅 권고</li>
-              <li>대전역 집결 · 대기 장소는 <strong>추후 통보</strong></li>
-              <li>15인승 렌트카로 함께 이동 예정 — 가능하면 자차보다 <strong>기차 이용</strong> 권고</li>
+              <li><strong>대전역 집결팀</strong>과 <strong>개별 숙소 이동팀</strong>으로 나뉘어 이동합니다</li>
+              <li>대전역 집결팀: 10/17(토) <strong>13:00 이후</strong> 대전역 도착 권고 · 대기 장소는 <strong>추후 통보</strong></li>
+              <li>개별 이동팀: 자차 등으로 <strong>숙소(그림같은 집 펜션)로 직접</strong> 이동</li>
               <li>점심은 자율 (드시고 오셔도 되고, 대전역 도착 후 <strong>성심당 빵</strong>으로 준비 예정)</li>
             </ul>
           </div>
@@ -433,7 +434,7 @@ footer a:hover{color:var(--accent)}
     </div>
     <div class="stat-grid">
       <div class="stat"><div class="num">2<small>일</small></div><div class="lab">1박 2일 대전 모임</div></div>
-      <div class="stat"><div class="num">15<small>인승</small></div><div class="lab">밴 대절 · 운전 이선우</div></div>
+      <div class="stat"><div class="num">🚆</div><div class="lab">대전역 집결 · 개별 이동</div></div>
       <div class="stat"><div class="num">3<small>코스</small></div><div class="lab">전채·메인·후식 파인다이닝</div></div>
       <div class="stat"><div class="num">🌲</div><div class="lab">장태산 등반</div></div>
     </div>
@@ -458,8 +459,8 @@ footer a:hover{color:var(--accent)}
     <div class="day-panel show reveal" data-panel="1">
       <div class="tl">
         <div class="tl-row"><div class="tl-time">~ 13:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🚆</span> 대전역 픽업 · 숙소 이동</div>
-          <div class="tl-desc">각 지역에서 대전역으로 모입니다. 15인승 밴 대절로 픽업하여(운전: 이선우) 함께 숙소로 이동합니다.</div>
+          <div class="tl-title"><span class="em">🚆</span> 대전역 집결 · 숙소 이동</div>
+          <div class="tl-desc">대전역 집결팀은 대전역에서 모여 함께 숙소로 이동하고, 개별 이동팀은 각자 숙소로 직접 이동합니다.</div>
         </div></div>
         <div class="tl-row"><div class="tl-time">18:00~20:00</div><div class="tl-body">
           <div class="tl-title"><span class="em">🍽️</span> 숙소 만찬 · 파인다이닝</div>
@@ -486,7 +487,7 @@ footer a:hover{color:var(--accent)}
         </div></div>
         <div class="tl-row"><div class="tl-time">09:00~10:00</div><div class="tl-body">
           <div class="tl-title"><span class="em">🚐</span> 장태산 이동</div>
-          <div class="tl-desc">퇴거 준비 후 15인승 밴으로 장태산으로 이동합니다.</div>
+          <div class="tl-desc">퇴거 준비 후 장태산으로 이동합니다.</div>
         </div></div>
         <div class="tl-row"><div class="tl-time">10:00~12:00</div><div class="tl-body">
           <div class="tl-title"><span class="em">🌲</span> 장태산 등반</div>
@@ -497,9 +498,10 @@ footer a:hover{color:var(--accent)}
           <div class="tl-desc">등반 후 각자 귀가하며 해산합니다.</div>
         </div></div>
       </div>
+    </div>
 
-      <div class="jt-gallery">
-        <div class="jt-cap"><span class="em">🌲</span> 장태산 자연휴양림 · 메타세쿼이아 숲길</div>
+    <div class="jt-gallery">
+      <div class="jt-cap"><span class="em">🌲</span> 장태산 자연휴양림 · 메타세쿼이아 숲길 <span class="jt-cap-note">(2일차 등반 예정지)</span></div>
         <div class="jt-marquee">
           <div class="jt-track">
             <img src="Data/jangtae01.jpg" alt="장태산 풍경" loading="lazy" />
@@ -536,7 +538,6 @@ footer a:hover{color:var(--accent)}
           </div>
         </div>
       </div>
-    </div>
   </div>
 </section>
 
@@ -695,7 +696,7 @@ footer a:hover{color:var(--accent)}
         <li>등갈비 · 삼겹살 · 목살</li><li>냉동참치 · 깐새우 · 오징어</li><li>부채살 · 두부 · 어묵</li><li>쌀 5kg · 밑반찬 · 소스류</li>
       </ul></div>
       <div class="prep-card reveal"><div class="pc-ic">🔥</div><h4>바비큐 · 장비</h4><ul>
-        <li>참나무 숯 10kg · 항아리</li><li>식용유 · 소금 · 후추</li><li>15인승 렌터카 (1박2일)</li><li>커피 머신 / 드립 도구</li>
+        <li>참나무 숯 10kg · 항아리</li><li>식용유 · 소금 · 후추</li><li>커피 머신 / 드립 도구</li>
       </ul></div>
       <div class="prep-card reveal"><div class="pc-ic">🎈</div><h4>실내외 장식</h4><ul>
         <li>호일풍선 (1~2m) · 라이트볼</li><li>꿈돌이·이글스·성심이 캐릭터</li><li>환영 플래카드 · 라인조명</li><li>캐노피 / 타프 (가든파티)</li>
