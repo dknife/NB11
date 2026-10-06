@@ -214,9 +214,11 @@ section{position:relative;padding:110px 0}
 .jt-gallery .jt-cap-note{color:var(--muted);font-weight:500}
 .jt-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .jt-track{display:flex;gap:16px;width:max-content;animation:jt-scroll 60s linear infinite}
+.jt-track.rev{animation-direction:reverse}
 .jt-marquee:hover .jt-track{animation-play-state:paused}
 .jt-track img{height:220px;width:auto;border-radius:var(--radius);object-fit:cover;box-shadow:0 10px 26px rgba(0,0,0,.12);flex:0 0 auto}
 @keyframes jt-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.jt-gallery + .jt-gallery{margin-top:34px}
 @media(max-width:640px){.jt-track img{height:150px}.jt-track{animation-duration:40s}}
 @media(prefers-reduced-motion:reduce){.jt-track{animation:none}.jt-marquee{overflow-x:auto}}
 
@@ -358,10 +360,10 @@ footer a:hover{color:var(--accent)}
           <span class="line"><span>대전에서</span></span>
           <span class="line"><span><span class="accent">함께</span> 하는 시간</span></span>
         </h1>
-        <p class="sub">과학의 도시 대전에서 보내는 1박 2일. 도심 투어와 자연 산책, 그리고 온 정성을 담은 파인다이닝까지 — 늘벗 11기가 함께 만드는 특별한 여행에 초대합니다.</p>
+        <p class="sub">금산 추부 「그림같은 집」 펜션에서 보내는 1박 2일. 가든 파인다이닝 만찬과 캠프파이어 여흥, 이튿날 만인산 둘레길 산행까지 — 늘벗 11기가 함께 만드는 특별한 여행에 초대합니다.</p>
         <div class="facts">
-          <span class="chip"><span class="ic">📅</span> 2026년 · 대전역 집결</span>
-          <span class="chip"><span class="ic">🌲</span> 장태산 숲길 등반</span>
+          <span class="chip"><span class="ic">📅</span> 2026.10.17–18 · 1박 2일</span>
+          <span class="chip"><span class="ic">🥾</span> 만인산 둘레길 산행</span>
           <span class="chip"><span class="ic">🍽️</span> 정성 가득 파인다이닝</span>
           <span class="chip"><span class="ic">🙋</span> 대표 이선우</span>
         </div>
@@ -405,19 +407,28 @@ footer a:hover{color:var(--accent)}
           <div class="inv-box">
             <h4><span class="bdg">집결</span> 모이는 안내</h4>
             <ul>
-              <li><strong>대전역 집결팀</strong>과 <strong>개별 숙소 이동팀</strong>으로 나뉘어 이동합니다</li>
-              <li>대전역 집결팀: 10/17(토) <strong>13:00 이후</strong> 대전역 도착 권고 · 대기 장소는 <strong>추후 통보</strong></li>
-              <li>개별 이동팀: 자차 등으로 <strong>숙소(그림같은 집 펜션)로 직접</strong> 이동</li>
-              <li>점심은 자율 (드시고 오셔도 되고, 대전역 도착 후 <strong>성심당 빵</strong>으로 준비 예정)</li>
+              <li>10/17(토) <strong>13:00 이후</strong> 숙소 도착 (자율) · 개인 정비</li>
+              <li>자차 등으로 <strong>숙소(그림같은 집 펜션)로 직접</strong> 이동</li>
+              <li><strong>서울 팀 3인</strong>은 쌍칼 출동</li>
+              <li>점심은 자율 — 드시고 오셔도 되고, 도착 후 <strong>애프터눈 티</strong>(웰컴 드링크·드립 커피·<strong>성심당 빵</strong>)로 준비 예정</li>
             </ul>
           </div>
           <div class="inv-box dep">
             <h4><span class="bdg">해산</span> 돌아가는 안내</h4>
             <ul>
-              <li>장태산 등반 후, <strong>18일 12:00 이후</strong> 해산 예정</li>
-              <li>귀가 티케팅 시 <strong>12:00 이후 열차</strong>로 참고 바랍니다</li>
+              <li>2일차 <strong>옛터 민속박물관 점심 식사 후</strong>, 18일 <strong>14:00 이후</strong> 귀가 예정</li>
+              <li>귀가 티케팅 시 <strong>14:00 이후</strong>로 참고 바랍니다</li>
             </ul>
           </div>
+        </div>
+
+        <div class="inv-box coop" style="margin-top:20px">
+          <h4><span class="bdg" style="background:var(--mint);color:#15402f">협조</span> 함께 챙겨주세요</h4>
+          <ul>
+            <li>술을 즐기는 분들은 <strong>각자 원하는 주류를 지참</strong> 해 주세요 · <strong>BYOB!</strong></li>
+            <li><strong>골프 퍼터·골프공</strong>을 가져올 수 있는 분들의 대여 협조 부탁드립니다</li>
+            <li>2일차 <strong>요가 지도</strong> 가능한 분 협조 부탁 (없으면 진행하지 않습니다)</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -430,13 +441,13 @@ footer a:hover{color:var(--accent)}
     <div class="sec-head">
       <div class="sec-tag">Overview</div>
       <h2>한눈에 보는 여행</h2>
-      <p>대전역에서 만나 숙소로 이동해 함께 만든 파인다이닝 만찬과 캠프파이어 여흥으로 밤을 보낸 뒤, 이튿날 아침 식사 후 장태산 등반으로 마무리하고 해산하는 간결한 일정입니다.</p>
+      <p>금산 추부 「그림같은 집」 펜션에서 애프터눈 티로 하루를 열고, 가든 파인다이닝 만찬과 캠프파이어 여흥으로 밤을 보낸 뒤, 이튿날 만인산 둘레길 산행과 옛터 민속박물관 점심으로 마무리하는 1박 2일 일정입니다.</p>
     </div>
     <div class="stat-grid">
-      <div class="stat"><div class="num">2<small>일</small></div><div class="lab">1박 2일 대전 모임</div></div>
-      <div class="stat"><div class="num">🚆</div><div class="lab">대전역 집결 · 개별 이동</div></div>
-      <div class="stat"><div class="num">3<small>코스</small></div><div class="lab">전채·메인·후식 파인다이닝</div></div>
-      <div class="stat"><div class="num">🌲</div><div class="lab">장태산 등반</div></div>
+      <div class="stat"><div class="num">2<small>일</small></div><div class="lab">1박 2일 금산·대전 모임</div></div>
+      <div class="stat"><div class="num">🏡</div><div class="lab">그림같은 집 펜션 (금산 추부)</div></div>
+      <div class="stat"><div class="num">3<small>코스</small></div><div class="lab">가든 파인다이닝 만찬</div></div>
+      <div class="stat"><div class="num">🥾</div><div class="lab">만인산 둘레길 산행</div></div>
     </div>
   </div>
 </section>
@@ -458,83 +469,175 @@ footer a:hover{color:var(--accent)}
     <!-- DAY 1 -->
     <div class="day-panel show reveal" data-panel="1">
       <div class="tl">
-        <div class="tl-row"><div class="tl-time">~ 13:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🚆</span> 대전역 집결 · 숙소 이동</div>
-          <div class="tl-desc">대전역 집결팀은 대전역에서 모여 함께 숙소로 이동하고, 개별 이동팀은 각자 숙소로 직접 이동합니다.</div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">18:00~20:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🍽️</span> 숙소 만찬 · 파인다이닝</div>
-          <div class="tl-desc">숙소에서 함께 준비하는 파인다이닝 만찬.
+        <div class="tl-row"><div class="tl-time">13:00~18:00</div><div class="tl-body">
+          <div class="tl-title"><span class="em">🎈</span> 숙소 도착 · 자유 활동</div>
+          <div class="tl-desc">숙소 도착(자율) 후 개인 정비. 애프터눈 티로 여유로운 오후를 즐깁니다.
             <ul>
-            <li><b>전채</b> — 샐러드, 비프스튜</li>
-            <li><b>메인</b> — 모듬튀김(새우·야채·오징어), 참치회, 등갈비 바비큐, 풀드포크, 밥, 밑반찬, 두부 두루치기</li>
-            <li><b>후식</b> — 과일, 성심당 시루, 커피</li>
+            <li><b>애프터눈 티</b> — 웰컴 드링크, 드립 커피, 성심당 빵류(핑거푸드·샌드위치 등)</li>
+            <li><b>산책</b> — 「하늘물빛정원」 산책 (1.5km, 도보 ~20분) · 호수·산책로·사우나·족욕 카페</li>
+            <li><b>골프</b> — 퍼팅 &nbsp;·&nbsp; <b>사격</b> — 과녁 영점사격</li>
+            <li><b>음악 감상</b> — 블루투스, 각종 악기(기타·베이스·키보드 등)</li>
           </ul></div>
         </div></div>
-        <div class="tl-row"><div class="tl-time">20:00~</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🔥</span> 여흥</div>
-          <div class="tl-desc">캠프파이어와 함께하는 여흥. 술안주로 넛트·과일·과자류와 참치김치찌개, 생선구이와 마시멜로 구이. 야식은 꿈돌이 라면.</div>
+        <div class="tl-row"><div class="tl-time">18:00~20:00</div><div class="tl-body">
+          <div class="tl-title"><span class="em">🍽️</span> 가든 만찬 · 파인다이닝</div>
+          <div class="tl-desc">숙소 건물 앞 잔디밭(테이블·천막·조명)에서 함께 준비하는 파인다이닝 만찬.
+            <ul>
+            <li><b>전채</b> — 양송이 스프, 비프 스튜, 사라다·샐러드</li>
+            <li><b>메인</b> — 각종 튀김, 회, 바비큐, 식사</li>
+            <li><b>후식</b> — 후식 &amp; 다과</li>
+          </ul></div>
         </div></div>
+        <div class="tl-row"><div class="tl-time">20:00~22:00</div><div class="tl-body">
+          <div class="tl-title"><span class="em">🔥</span> 음주가무</div>
+          <div class="tl-desc">테라스·잔디밭·실내에서 캠프파이어(가능할 경우)와 함께. 술 &amp; 안주(꼬치구이·넛트류·탕류 등), 음악, 그리고 많은 이야기.</div>
+        </div></div>
+        <div class="tl-row"><div class="tl-time">22:00~</div><div class="tl-body">
+          <div class="tl-title"><span class="em">🌙</span> 여흥</div>
+          <div class="tl-desc">늦은 음주와 따뜻한 커피 &amp; 차, 남은 음식. 밤새워 불멍(가능하다면)으로 첫날 밤을 마무리합니다.</div>
+        </div></div>
+      </div>
+
+      <div class="jt-gallery">
+        <div class="jt-cap"><span class="em">🌿</span> 하늘물빛정원 산책 <span class="jt-cap-note">(1일차 · 호수·산책로·식물원·족욕 카페)</span></div>
+        <div class="jt-marquee">
+          <div class="jt-track">
+            <img src="Data/하늘물빛정원/haneul01.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul02.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul03.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul04.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul05.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul06.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul07.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul08.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul09.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul10.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul11.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul12.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul13.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul14.webp" alt="하늘물빛정원" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul15.webp" alt="하늘물빛정원" loading="lazy" />
+            <!-- 무한 루프용 복제본 -->
+            <img src="Data/하늘물빛정원/haneul01.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul02.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul03.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul04.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul05.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul06.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul07.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul08.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul09.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul10.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul11.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul12.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul13.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul14.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/하늘물빛정원/haneul15.webp" alt="" aria-hidden="true" loading="lazy" />
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- DAY 2 -->
     <div class="day-panel reveal" data-panel="2">
       <div class="tl">
-        <div class="tl-row"><div class="tl-time">08:00~09:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🍲</span> 아침 식사</div>
-          <div class="tl-desc">북어어묵국, 밥, 밑반찬. 후식으로 커피와 다과.</div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">09:00~10:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🚐</span> 장태산 이동</div>
-          <div class="tl-desc">퇴거 준비 후 장태산으로 이동합니다.</div>
+        <div class="tl-row"><div class="tl-time">08:00~10:00</div><div class="tl-body">
+          <div class="tl-title"><span class="em">🍲</span> 아침 식사 · 오전 활동 · 퇴실</div>
+          <div class="tl-desc">기상하는 대로 아침 식사(북어해장국·밥·밑반찬). 산책·요가·모닝 커피 등으로 여유로운 아침을 보낸 뒤 퇴실을 준비합니다.</div>
         </div></div>
         <div class="tl-row"><div class="tl-time">10:00~12:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🌲</span> 장태산 등반</div>
-          <div class="tl-desc">장태산 메타세쿼이아 숲길과 전망대를 오르는 등반. 간식으로 장태산 호떡 등.</div>
+          <div class="tl-title"><span class="em">🥾</span> 만인산 자연휴양림 산행</div>
+          <div class="tl-desc">퇴실 후 만인산 자연휴양림으로 이동(숙소에서 차량 ~20분). 「왕에게로 가는 길」 둘레길 산행 (2.6km, ~1시간).
+            <ul>
+            <li>「제1주차장」 주차 (주차 공간이 협소할 수 있음)</li>
+            <li>「무장애 나눔길」 입구로 입장 → 데크길</li>
+            <li>이성계 태조태실, 봉이호떡</li>
+          </ul></div>
         </div></div>
-        <div class="tl-row"><div class="tl-time">12:00~</div><div class="tl-body">
-          <div class="tl-title"><span class="em">👋</span> 해산</div>
-          <div class="tl-desc">등반 후 각자 귀가하며 해산합니다.</div>
+        <div class="tl-row"><div class="tl-time">12:00~14:00</div><div class="tl-body">
+          <div class="tl-title"><span class="em">🍽️</span> 옛터 민속박물관 점심 · 귀가</div>
+          <div class="tl-desc">만인산 주차장에서 차량 ~5분 거리의 「옛터 민속박물관」으로 이동. 한식당 <strong>「얼쑤」</strong>에서 점심 식사 후 자율 귀가합니다.</div>
         </div></div>
       </div>
     </div>
 
     <div class="jt-gallery">
-      <div class="jt-cap"><span class="em">🌲</span> 장태산 자연휴양림 · 메타세쿼이아 숲길 <span class="jt-cap-note">(2일차 등반 예정지)</span></div>
+      <div class="jt-cap"><span class="em">🥾</span> 만인산 자연휴양림 · 「왕에게로 가는 길」 둘레길 <span class="jt-cap-note">(2일차 산행 예정지)</span></div>
         <div class="jt-marquee">
           <div class="jt-track">
-            <img src="Data/jangtae01.jpg" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae02.png" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae03.webp" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae04.webp" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae05.webp" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae06.jpg" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae07.jpg" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae08.webp" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae09.webp" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae10.jpg" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae11.webp" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae12.webp" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae13.jpg" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae14.webp" alt="장태산 풍경" loading="lazy" />
-            <img src="Data/jangtae15.jpg" alt="장태산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan01.jpg" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan02.jpg" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan03.jpg" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan04.jpg" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan05.jpg" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan06.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan07.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan08.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan09.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan10.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan11.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan12.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan13.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan14.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan15.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan16.png" alt="만인산 풍경" loading="lazy" />
+            <img src="Data/만인산/maninsan17.png" alt="만인산 풍경" loading="lazy" />
             <!-- 무한 루프용 복제본 -->
-            <img src="Data/jangtae01.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae02.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae03.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae04.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae05.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae06.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae07.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae08.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae09.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae10.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae11.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae12.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae13.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae14.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/jangtae15.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan01.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan02.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan03.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan04.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan05.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan06.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan07.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan08.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan09.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan10.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan11.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan12.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan13.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan14.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan15.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan16.png" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/만인산/maninsan17.png" alt="" aria-hidden="true" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    <div class="jt-gallery">
+      <div class="jt-cap"><span class="em">🍽️</span> 일요일 식당 – 옛터 <span class="jt-cap-note">(옛터 민속박물관 · 한식당 「얼쑤」)</span></div>
+        <div class="jt-marquee">
+          <div class="jt-track rev">
+            <img src="Data/옛터/yetteo01.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo02.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo03.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo04.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo05.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo06.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo07.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo08.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo09.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo10.webp" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo11.jpg" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo12.jpg" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo13.jpg" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo14.jpg" alt="옛터 민속박물관" loading="lazy" />
+            <img src="Data/옛터/yetteo15.jpg" alt="옛터 민속박물관" loading="lazy" />
+            <!-- 무한 루프용 복제본 -->
+            <img src="Data/옛터/yetteo01.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo02.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo03.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo04.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo05.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo06.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo07.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo08.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo09.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo10.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo11.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo12.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo13.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo14.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="Data/옛터/yetteo15.jpg" alt="" aria-hidden="true" loading="lazy" />
           </div>
         </div>
       </div>
@@ -552,14 +655,14 @@ footer a:hover{color:var(--accent)}
     <div class="sec-head reveal">
       <div class="sec-tag">Fine Dining</div>
       <h2>정성으로 차리는 미식</h2>
-      <p>첫날 저녁, 늘벗 11기가 직접 준비하는 파인다이닝 코스. 전채부터 메인, 후식과 야식까지 — 각 요리를 소개합니다.</p>
+      <p>첫날 저녁, 늘벗 11기가 직접 준비하는 가든 파인다이닝 코스. 전채부터 메인, 후식, 그리고 캠프파이어 안주까지 — 각 요리를 소개합니다.</p>
     </div>
 
     <div class="course-nav reveal">
       <span class="course-pill"><span class="d" style="background:#7BDCB5"></span>전채 Appetizer</span>
       <span class="course-pill"><span class="d" style="background:#FA5D29"></span>메인 Main</span>
       <span class="course-pill"><span class="d" style="background:#FFF083"></span>후식 Dessert</span>
-      <span class="course-pill"><span class="d" style="background:#0693E3"></span>야식·안주 Night</span>
+      <span class="course-pill"><span class="d" style="background:#0693E3"></span>안주 Night</span>
     </div>
 
     <div class="recipe-grid">
@@ -571,6 +674,15 @@ footer a:hover{color:var(--accent)}
         <p class="rc-desc">양상추를 넉넉히 깔고 오이·당근·피망·메추리알을 올린 상큼한 시작. 유자폰즈와 망고소스를 곁들여 두 가지 맛으로 즐깁니다.</p>
         <div class="rc-ing-t">Ingredients</div>
         <div class="rc-ing"><span>양상추</span><span>오이·당근·피망</span><span>메추리알</span><span>유자폰즈</span><span>망고소스</span></div>
+      </article>
+
+      <article class="recipe reveal" style="--course-c:#7BDCB5">
+        <div class="rc-course">전채 · Appetizer</div>
+        <span class="rc-emoji">🍄</span>
+        <h3>양송이 스프</h3>
+        <p class="rc-desc">양송이와 양파를 버터에 볶아 우유·생크림으로 부드럽게 끓인 크림 스프. 따뜻하게 코스의 첫 문을 여는 웰컴 보울입니다.</p>
+        <div class="rc-ing-t">Ingredients</div>
+        <div class="rc-ing"><span>양송이</span><span>양파</span><span>버터</span><span>우유·생크림</span></div>
       </article>
 
       <article class="recipe reveal" style="--course-c:#7BDCB5">
@@ -638,41 +750,32 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>성심당 시루</span><span>알밤시루</span><span>과일</span><span>커피</span></div>
       </article>
 
-      <!-- 야식 -->
+      <!-- 안주 -->
       <article class="recipe reveal" style="--course-c:#0693E3">
-        <div class="rc-course">안주 · Night</div>
+        <div class="rc-course">안주 · 탕류</div>
         <span class="rc-emoji">🥘</span>
         <h3>참치김치찌개</h3>
-        <p class="rc-desc">참치캔과 잘 익은 김치를 넣고 치킨스톡으로 감칠맛을 더한 얼큰한 안주. 캠프파이어 밤을 든든하게 채워줍니다.</p>
+        <p class="rc-desc">참치캔과 잘 익은 김치를 넣고 치킨스톡으로 감칠맛을 더한 얼큰한 탕류 안주. 음주가무의 밤을 든든하게 채워줍니다.</p>
         <div class="rc-ing-t">Ingredients</div>
         <div class="rc-ing"><span>참치캔</span><span>김치</span><span>치킨스톡</span></div>
       </article>
 
       <article class="recipe reveal" style="--course-c:#0693E3">
-        <div class="rc-course">캠프파이어 · Night</div>
-        <span class="rc-emoji">🔥</span>
-        <h3>생선구이 &amp; 마시멜로</h3>
-        <p class="rc-desc">은어·시샤모 등 생선을 숯불에 노릇하게 굽고, 마시멜로를 구워 달콤하게. 모닥불 곁에서 나누는 이야기와 함께.</p>
+        <div class="rc-course">캠프파이어 · 안주</div>
+        <span class="rc-emoji">🍢</span>
+        <h3>꼬치구이</h3>
+        <p class="rc-desc">닭꼬치·은행꼬치 등 각종 꼬치를 숯불에 노릇하게 굽는 캠프파이어 안주. 모듬 넛트류와 함께 모닥불 곁 이야기를 더합니다.</p>
         <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>은어·시샤모</span><span>마시멜로</span><span>닭꼬치·은행꼬치</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#0693E3">
-        <div class="rc-course">야식 · Night</div>
-        <span class="rc-emoji">🍜</span>
-        <h3>꿈돌이 라면</h3>
-        <p class="rc-desc">여흥의 마지막을 장식하는 야식. 대전 감성 가득한 꿈돌이 라면으로 첫날 밤을 따뜻하게 마무리합니다.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>꿈돌이라면 5봉</span></div>
+        <div class="rc-ing"><span>닭꼬치·은행꼬치</span><span>꼬치류</span><span>모듬 넛트류</span></div>
       </article>
 
       <article class="recipe reveal" style="--course-c:#FFF083">
         <div class="rc-course">둘째날 · Morning</div>
         <span class="rc-emoji">🍚</span>
-        <h3>북어어묵국 아침상</h3>
-        <p class="rc-desc">황태채와 모듬어묵을 넣고 참기름으로 고소하게 끓인 해장국. 밥·밑반찬과 함께 둘째날 아침을 든든히 엽니다.</p>
+        <h3>북어 해장국 아침상</h3>
+        <p class="rc-desc">황태채를 참기름에 달달 볶아 무·콩나물·계란을 더해 시원하고 고소하게 끓인 해장국. 밥·밑반찬과 함께 둘째날 아침을 든든히 엽니다.</p>
         <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>황태채</span><span>모듬어묵</span><span>참기름</span><span>밥·밑반찬</span></div>
+        <div class="rc-ing"><span>황태채</span><span>무·콩나물</span><span>계란</span><span>참기름</span><span>밥·밑반찬</span></div>
       </article>
     </div>
   </div>
@@ -693,7 +796,7 @@ footer a:hover{color:var(--accent)}
     </div>
     <div class="prep-grid">
       <div class="prep-card reveal"><div class="pc-ic">🍽️</div><h4>먹거리 · 식자재</h4><ul>
-        <li>등갈비 · 삼겹살 · 목살</li><li>냉동참치 · 깐새우 · 오징어</li><li>부채살 · 두부 · 어묵</li><li>쌀 5kg · 밑반찬 · 소스류</li>
+        <li>등갈비 · 삼겹살 · 목살</li><li>냉동참치 · 깐새우 · 오징어</li><li>부채살 · 두부 · 양송이 · 황태채</li><li>쌀 5kg · 밑반찬 · 소스류</li>
       </ul></div>
       <div class="prep-card reveal"><div class="pc-ic">🔥</div><h4>바비큐 · 장비</h4><ul>
         <li>참나무 숯 10kg · 항아리</li><li>식용유 · 소금 · 후추</li><li>커피 머신 / 드립 도구</li>
@@ -702,7 +805,7 @@ footer a:hover{color:var(--accent)}
         <li>호일풍선 (1~2m) · 라이트볼</li><li>꿈돌이·이글스·성심이 캐릭터</li><li>환영 플래카드 · 라인조명</li><li>캐노피 / 타프 (가든파티)</li>
       </ul></div>
       <div class="prep-card reveal"><div class="pc-ic">🍪</div><h4>간식 · 음료</h4><ul>
-        <li>성심당 빵류 · 쿠키 · 마들렌</li><li>모듬 넛트 · 과자류</li><li>물 · 쥬스 · 여명808</li><li>꿈돌이라면 5봉 (야식)</li>
+        <li>성심당 빵류 · 쿠키 · 마들렌</li><li>모듬 넛트 · 과자류</li><li>물 · 쥬스 · 여명808</li><li>드립 커피 · 전통차 · 다과 (애프터눈 티·여흥)</li>
       </ul></div>
     </div>
   </div>
