@@ -3,331 +3,200 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>늘벗 11기 · 2026 대전 여행</title>
-<meta name="description" content="늘벗 11기 2026년 대전 1박 2일 모임 계획 — 일정과 파인다이닝 미식 레시피" />
+<title>늘벗 11기 · 2026 금산·대전 가을 모임</title>
+<meta name="description" content="늘벗 11기 2026년 금산·대전 1박 2일 가을 모임 — 일정·안내·가든 파인다이닝" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#F8F8F8; --bg2:#EDEDED; --white:#FFFFFF;
-  --ink:#222222; --ink2:#313131; --muted:#6b6b6b;
-  --accent:#FA5D29; --cyan:#0693E3; --mint:#7BDCB5; --yellow:#FFF083;
-  --radius:16px; --radius-sm:8px;
-  --maxw:1300px; --pad:52px;
-  --ease:cubic-bezier(0.25,1,0.5,1);
+  --paper:#F3F0E7; --paper-2:#EAE6DA; --surface:#FBF9F3; --white:#FFFFFF;
+  --ink:#1C1B17; --ink2:#45413A; --muted:#8B8676;
+  --line:rgba(28,27,23,.14); --line-2:rgba(28,27,23,.30);
+  --accent:#E0502A; --olive:#6E7A43; --amber:#C2832B; --slate:#44596A;
+  --mint:#6E7A43; --cyan:#44596A; --yellow:#C2832B;
+  --radius:4px; --radius-sm:2px;
+  --maxw:1200px; --pad:clamp(24px,6vw,72px);
+  --disp:"Space Grotesk","Noto Sans KR",sans-serif;
+  --body:"Noto Sans KR","Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg); color:var(--ink);
-  font-family:"Inter Tight","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  line-height:1.6; -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
-@media(max-width:768px){:root{--pad:24px}}
+.kicker,.sec-tag,.inv-eyebrow{font-family:var(--disp);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
 
-/* ---------- Skip link ---------- */
-.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:12px 20px;z-index:1000;border-radius:0 0 8px 0}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 20px;z-index:1000}
 .skip:focus{left:0}
 
-/* ---------- Header ---------- */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  height:71px;display:flex;align-items:center;
-  background:rgba(248,248,248,0.72);backdrop-filter:saturate(180%) blur(14px);
-  border-bottom:1px solid rgba(0,0,0,0.06);
-  transition:background .3s var(--ease);
-}
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;display:flex;align-items:center;background:rgba(243,240,231,0.75);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);transition:background .3s var(--ease)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-0.02em}
-.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block}
-nav.menu{display:flex;gap:34px;font-size:14px;font-weight:500}
-nav.menu a{color:var(--ink2);position:relative;transition:color .3s var(--ease)}
-nav.menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:width .3s var(--ease)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.01em}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+nav.menu{display:flex;gap:30px;font-family:var(--disp);font-size:13px;font-weight:500;letter-spacing:.02em}
+nav.menu a{color:var(--ink2);position:relative;transition:color .25s var(--ease)}
+nav.menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--accent);transition:width .25s var(--ease)}
 nav.menu a:hover{color:var(--ink)}
 nav.menu a:hover::after{width:100%}
 .menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:22px;color:var(--ink)}
 @media(max-width:768px){nav.menu{display:none}.menu-btn{display:block}
-  nav.menu.open{display:flex;position:absolute;top:71px;left:0;right:0;flex-direction:column;gap:0;background:var(--white);padding:8px 0;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+  nav.menu.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);padding:8px 0;border-bottom:1px solid var(--line)}
   nav.menu.open a{padding:14px var(--pad)}
   nav.menu.open a::after{display:none}
 }
 
-/* ---------- Hero ---------- */
-.hero{
-  position:relative;min-height:100vh;display:flex;align-items:center;
-  padding-top:71px;overflow:hidden;
-  background:
-    radial-gradient(1100px 620px at 78% -8%, rgba(6,147,227,.10), transparent 60%),
-    radial-gradient(900px 520px at 8% 108%, rgba(250,93,41,.10), transparent 55%),
-    linear-gradient(rgba(248,248,248,.55), rgba(248,248,248,.72)),
-    url("intro.png") center/cover no-repeat,
-    var(--bg);
-}
-.hero .wrap{width:100%}
-/* hero two-column: text + small video card */
-.hero-grid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:56px}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}}
-.hero-media{
-  flex-shrink:0;width:clamp(200px,23vw,300px);
-  opacity:0;animation:fadeUp 1s var(--ease) .55s forwards;
-}
-.hero-media figure{
-  position:relative;border-radius:20px;overflow:hidden;
-  aspect-ratio:334/720;background:#000;
-  border:1px solid rgba(0,0,0,.08);
-  box-shadow:0 24px 60px rgba(0,0,0,.18);
-}
-.hero-video{width:100%;height:100%;object-fit:cover;display:block}
-.hero-media figcaption{
-  position:absolute;left:0;right:0;bottom:0;
-  display:flex;align-items:center;gap:8px;
-  padding:22px 16px 14px;
-  background:linear-gradient(transparent,rgba(0,0,0,.72));
-  color:#fff;font-size:13.5px;font-weight:600;letter-spacing:-0.01em;
-}
-.hero-media figcaption .pin{font-size:15px}
-@media(max-width:900px){
-  .hero-media{width:min(300px,72vw);margin:0 auto}
-}
-/* venue label next to title */
-.venue{
-  display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;
-  background:var(--white);border:1px solid rgba(0,0,0,.08);
-  border-radius:999px;padding:9px 18px;
-  font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-  opacity:0;animation:fadeUp 1s var(--ease) .4s forwards;
-}
-.venue .pin{font-size:16px}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:26px;
-}
-.eyebrow .bar{width:38px;height:2px;background:var(--accent)}
-.hero h1{
-  font-family:"Inter Tight","Noto Sans KR",sans-serif;
-  font-weight:800;letter-spacing:-0.03em;line-height:1.06;
-  font-size:clamp(38px,6.4vw,98px);
-}
-.hero h1 .accent{color:var(--accent)}
-.hero h1 .line{display:block;overflow:hidden}
-.hero h1 .line span{display:block;transform:translateY(1.2em);animation:reveal 1.1s var(--ease) forwards}
-.hero h1 .line:nth-child(2) span{animation-delay:.12s}
-.hero h1 .line:nth-child(3) span{animation-delay:.24s}
+.hero{position:relative;min-height:94vh;display:flex;align-items:center;padding:120px 0 80px;background:var(--paper);text-align:center;overflow:hidden}
+.hero-inner{display:flex;flex-direction:column;align-items:center}
+.hero .kicker{margin-bottom:28px;opacity:0;animation:fadeUp .9s var(--ease) .1s forwards}
+.hero .kicker::before,.hero .kicker::after{content:"—";margin:0 10px;color:var(--line-2)}
+.hero-title{font-family:var(--disp);font-weight:800;letter-spacing:-0.035em;line-height:.95;font-size:clamp(48px,10.5vw,150px)}
+.hero-title .l{display:block;overflow:hidden}
+.hero-title .l span{display:block;transform:translateY(105%);animation:reveal 1.05s var(--ease) forwards}
+.hero-title .l:nth-child(2) span{animation-delay:.1s}
+.hero-title .l:nth-child(3) span{animation-delay:.2s}
+.hero-title em{font-style:normal;color:var(--accent)}
 @keyframes reveal{to{transform:translateY(0)}}
-.hero .sub{
-  margin-top:30px;max-width:640px;font-size:clamp(16px,2.1vw,20px);
-  color:var(--ink2);font-weight:400;
-  opacity:0;animation:fadeUp 1s var(--ease) .5s forwards;
-}
-.hero .facts{
-  margin-top:44px;display:flex;flex-wrap:wrap;gap:14px;
-  opacity:0;animation:fadeUp 1s var(--ease) .68s forwards;
-}
-.chip{
-  display:inline-flex;align-items:center;gap:9px;
-  background:var(--white);border:1px solid rgba(0,0,0,.07);
-  border-radius:999px;padding:11px 20px;font-size:14px;font-weight:500;
-  box-shadow:0 2px 8px rgba(0,0,0,.04);
-}
-.chip .ic{font-size:16px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;opacity:0;animation:fadeUp 1s var(--ease) 1s forwards}
-.scroll-hint::after{content:"";display:block;width:1px;height:34px;margin:10px auto 0;background:linear-gradient(var(--muted),transparent);animation:hint 1.8s var(--ease) infinite}
-@keyframes hint{0%{opacity:.2;transform:scaleY(.4);transform-origin:top}50%{opacity:1}100%{opacity:.2;transform:scaleY(1);transform-origin:top}}
+.hero-tags{margin-top:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;font-family:var(--disp);font-weight:500;font-size:clamp(14px,1.7vw,17px);opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
+.hero-tags span{color:var(--accent)}
+.hero-tags span:hover{text-decoration:underline;text-underline-offset:3px}
+.hero-sub{margin-top:30px;max-width:620px;font-size:clamp(15px,1.9vw,18px);color:var(--ink2);opacity:0;animation:fadeUp .9s var(--ease) .62s forwards}
+.hero-video-card{position:relative;margin-top:46px;width:clamp(200px,24vw,260px);opacity:0;animation:fadeUp 1s var(--ease) .74s forwards}
+.hvc-frame{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:334/560;background:#000;border:1px solid var(--line-2)}
+.hero-video{width:100%;height:100%;object-fit:cover;display:block}
+.hvc-cap{margin-top:12px;font-family:var(--disp);font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--disp);font-size:11px;letter-spacing:.25em;color:var(--muted);text-transform:uppercase;opacity:0;animation:fadeUp 1s var(--ease) 1s forwards}
 
-/* ---------- Section base ---------- */
-section{position:relative;padding:110px 0}
-.sec-head{max-width:760px;margin-bottom:60px}
-.sec-tag{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.sec-head h2{font-size:clamp(30px,4.6vw,46px);font-weight:800;letter-spacing:-0.025em;line-height:1.12}
-.sec-head p{margin-top:18px;color:var(--ink2);font-size:clamp(15px,1.8vw,18px)}
+section{position:relative;padding:clamp(72px,12vw,138px) 0}
+section:not(.hero):not(.cta){border-top:1px solid var(--line)}
+.sec-head{max-width:820px;margin-bottom:clamp(40px,6vw,66px)}
+.sec-tag{margin-bottom:18px}
+.sec-head h2{font-family:var(--disp);font-size:clamp(32px,5.5vw,60px);font-weight:800;letter-spacing:-0.025em;line-height:1.03}
+.sec-head p{margin-top:20px;color:var(--ink2);font-size:clamp(15px,1.8vw,18px);max-width:680px}
 
-/* reveal-on-scroll */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important}}
 
-/* ---------- Overview stats ---------- */
-.overview{background:var(--bg)}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media(max-width:900px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.stat-grid{grid-template-columns:1fr}}
-.stat{background:var(--white);border-radius:var(--radius);padding:34px 30px;border:1px solid rgba(0,0,0,.05);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.stat:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(0,0,0,.08)}
-.stat .num{font-size:44px;font-weight:800;letter-spacing:-0.03em;line-height:1}
-.stat .num small{font-size:20px;font-weight:600;color:var(--muted)}
-.stat .lab{margin-top:12px;color:var(--ink2);font-size:15px;font-weight:500}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.stat:hover{transform:translateY(-4px);border-color:var(--line-2)}
+.stat .num{font-family:var(--disp);font-size:46px;font-weight:700;letter-spacing:-0.03em;line-height:1}
+.stat .num small{font-size:18px;font-weight:600;color:var(--muted)}
+.stat .lab{margin-top:14px;color:var(--ink2);font-size:14.5px}
 .stat:nth-child(1) .num{color:var(--accent)}
-.stat:nth-child(2) .num{color:var(--cyan)}
+.stat:nth-child(2) .num{color:var(--slate)}
 .stat:nth-child(3) .num{color:var(--ink)}
-.stat:nth-child(4) .num{color:var(--ink)}
+.stat:nth-child(4) .num{color:var(--olive)}
 
-/* ---------- Timeline ---------- */
-.day-tabs{display:flex;gap:12px;margin-bottom:44px;flex-wrap:wrap}
-.day-tab{
-  height:48px;padding:0 26px;border-radius:999px;border:1px solid rgba(0,0,0,.12);
-  background:transparent;color:var(--ink2);font:inherit;font-weight:600;font-size:15px;
-  cursor:pointer;transition:all .3s var(--ease);display:inline-flex;align-items:center;gap:9px
-}
-.day-tab .b{width:8px;height:8px;border-radius:50%;background:var(--muted)}
-.day-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.day-tabs{display:flex;gap:10px;margin-bottom:42px;flex-wrap:wrap}
+.day-tab{height:46px;padding:0 24px;border-radius:999px;border:1px solid var(--line-2);background:transparent;color:var(--ink2);font-family:var(--disp);font-weight:600;font-size:14px;cursor:pointer;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:9px}
+.day-tab .b{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.day-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .day-tab.active .b{background:var(--accent)}
 .day-panel{display:none}
-.day-panel.show{display:block;animation:fadeUp .6s var(--ease)}
-
-.tl{position:relative;padding-left:0}
-.tl-row{
-  display:grid;grid-template-columns:150px 1fr;gap:0;
-  border-top:1px solid rgba(0,0,0,.09);
-}
-.tl-row:last-child{border-bottom:1px solid rgba(0,0,0,.09)}
-.tl-time{
-  padding:28px 24px 28px 0;font-weight:700;font-size:16px;letter-spacing:-0.01em;color:var(--ink);
-  position:relative;
-}
-.tl-time::before{content:"";position:absolute;right:-5px;top:33px;width:11px;height:11px;border-radius:50%;background:var(--white);border:2px solid var(--accent)}
-.tl-body{padding:26px 0 26px 34px;border-left:1px solid rgba(0,0,0,.09)}
-.tl-title{font-size:20px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.day-panel.show{display:block;animation:fadeUp .5s var(--ease)}
+.tl{position:relative}
+.tl-row{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--line)}
+.tl-row:last-child{border-bottom:1px solid var(--line)}
+.tl-time{padding:28px 24px 28px 0;font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.01em;color:var(--ink);position:relative}
+.tl-time::before{content:"";position:absolute;right:-5px;top:33px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+.tl-body{padding:26px 0 26px 34px;border-left:1px solid var(--line)}
+.tl-title{font-size:20px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px;display:flex;align-items:center;gap:10px}
 .tl-title .em{font-size:22px}
-.tl-desc{color:var(--ink2);font-size:15px;line-height:1.7}
-.tl-desc ul{list-style:none;margin-top:6px}
-.tl-desc li{position:relative;padding-left:18px;margin:3px 0}
-.tl-desc li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.tag-mini{display:inline-block;background:var(--bg2);color:var(--ink2);font-size:12px;font-weight:600;padding:3px 11px;border-radius:999px;margin:2px 4px 2px 0}
-@media(max-width:640px){
-  .tl-row{grid-template-columns:1fr}
-  .tl-time{padding:22px 0 4px;font-size:18px}
-  .tl-time::before{display:none}
-  .tl-body{border-left:none;padding:0 0 22px}
-}
+.tl-desc{color:var(--ink2);font-size:15px;line-height:1.75}
+.tl-desc ul{list-style:none;margin-top:8px}
+.tl-desc li{position:relative;padding-left:18px;margin:4px 0}
+.tl-desc li::before{content:"";position:absolute;left:2px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.tl-desc b{color:var(--ink)}
+@media(max-width:640px){.tl-row{grid-template-columns:1fr}.tl-time{padding:22px 0 4px;font-size:17px}.tl-time::before{display:none}.tl-body{border-left:none;padding:0 0 22px}}
 
-/* ---------- Jangtaesan photo marquee ---------- */
-.jt-gallery{margin-top:40px}
-.jt-gallery .jt-cap{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink2);margin-bottom:18px}
-.jt-gallery .jt-cap .em{font-size:20px}
-.jt-gallery .jt-cap-note{color:var(--muted);font-weight:500}
-.jt-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.jt-track{display:flex;gap:16px;width:max-content;animation:jt-scroll 60s linear infinite}
+.jt-gallery{margin-top:44px}
+.jt-gallery .jt-cap{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--ink2);margin-bottom:16px;text-transform:uppercase}
+.jt-gallery .jt-cap .em{font-size:18px}
+.jt-gallery .jt-cap-note{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0}
+.jt-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.jt-track{display:flex;gap:14px;width:max-content;animation:jt-scroll 60s linear infinite}
 .jt-track.rev{animation-direction:reverse}
 .jt-marquee:hover .jt-track{animation-play-state:paused}
-.jt-track img{height:220px;width:auto;border-radius:var(--radius);object-fit:cover;box-shadow:0 10px 26px rgba(0,0,0,.12);flex:0 0 auto}
+.jt-track img{height:220px;width:auto;border-radius:var(--radius);object-fit:cover;border:1px solid var(--line);flex:0 0 auto}
 @keyframes jt-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .jt-gallery + .jt-gallery{margin-top:34px}
 @media(max-width:640px){.jt-track img{height:150px}.jt-track{animation-duration:40s}}
 @media(prefers-reduced-motion:reduce){.jt-track{animation:none}.jt-marquee{overflow-x:auto}}
 
-/* ---------- Wave divider ---------- */
-.wave{line-height:0}
-.wave svg{width:100%;height:120px;display:block}
-@media(max-width:768px){.wave svg{height:70px}}
-
-/* ---------- Dining (dark) ---------- */
-.dining{background:var(--ink);color:#fff}
-.dining .sec-head h2{color:#fff}
-.dining .sec-head p{color:#cfcfcf}
-.dining .sec-tag{color:var(--mint)}
+.dining{background:var(--paper-2)}
 .course-nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
-.course-pill{padding:9px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:600;color:#ddd}
+.course-pill{padding:8px 16px;border-radius:999px;border:1px solid var(--line-2);font-family:var(--disp);font-size:12.5px;font-weight:600;color:var(--ink2)}
 .course-pill .d{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
-.recipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.recipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:980px){.recipe-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.recipe-grid{grid-template-columns:1fr}}
-.recipe{
-  background:#2b2b2b;border-radius:var(--radius);padding:30px 28px;border:1px solid rgba(255,255,255,.07);
-  transition:transform .35s var(--ease),background .35s var(--ease);position:relative;overflow:hidden
-}
-.recipe::before{content:"";position:absolute;left:0;top:0;height:100%;width:4px;background:var(--course-c,var(--accent))}
-.recipe:hover{transform:translateY(-8px);background:#333}
-.recipe .rc-course{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--course-c,var(--accent));margin-bottom:14px}
-.recipe .rc-emoji{font-size:34px;margin-bottom:14px;display:block}
-.recipe h3{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-bottom:12px}
-.recipe .rc-desc{font-size:14.5px;color:#c9c9c9;line-height:1.65;margin-bottom:18px}
-.recipe .rc-ing-t{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8f8f8f;margin-bottom:9px}
+.recipe{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .25s var(--ease),border-color .25s var(--ease);position:relative;overflow:hidden}
+.recipe::before{content:"";position:absolute;left:0;top:0;height:100%;width:3px;background:var(--course-c,var(--accent))}
+.recipe:hover{transform:translateY(-5px);border-color:var(--line-2)}
+.recipe .rc-course{font-family:var(--disp);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--course-c,var(--accent));margin-bottom:14px}
+.recipe .rc-emoji{font-size:32px;margin-bottom:12px;display:block}
+.recipe h3{font-size:21px;font-weight:700;letter-spacing:-0.01em;margin-bottom:12px}
+.recipe .rc-desc{font-size:14.5px;color:var(--ink2);line-height:1.7;margin-bottom:18px}
+.recipe .rc-ing-t{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
 .recipe .rc-ing{display:flex;flex-wrap:wrap;gap:7px}
-.recipe .rc-ing span{background:rgba(255,255,255,.08);color:#e6e6e6;font-size:12.5px;padding:5px 11px;border-radius:8px}
+.recipe .rc-ing span{background:rgba(28,27,23,.05);color:var(--ink2);font-size:12.5px;padding:5px 11px;border-radius:var(--radius-sm)}
 
-/* ---------- Prep / 준비물 ---------- */
-.prep{background:var(--bg)}
-.prep-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.prep-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media(max-width:900px){.prep-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.prep-grid{grid-template-columns:1fr}}
-.prep-card{background:var(--white);border-radius:var(--radius);padding:28px 26px;border:1px solid rgba(0,0,0,.05);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.prep-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(0,0,0,.08)}
-.prep-card .pc-ic{font-size:30px;margin-bottom:14px}
-.prep-card h4{font-size:18px;font-weight:700;margin-bottom:12px;letter-spacing:-0.02em}
+.prep-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.prep-card:hover{transform:translateY(-4px);border-color:var(--line-2)}
+.prep-card .pc-ic{font-size:28px;margin-bottom:14px}
+.prep-card h4{font-size:17px;font-weight:700;margin-bottom:12px;letter-spacing:-0.01em}
 .prep-card ul{list-style:none}
-.prep-card li{position:relative;padding-left:16px;font-size:14px;color:var(--ink2);margin:6px 0}
-.prep-card li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.prep-card li{position:relative;padding-left:16px;font-size:14px;color:var(--ink2);margin:7px 0}
+.prep-card li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
 
-/* ---------- Notice / 안내장 ---------- */
-.notice{
-  background:
-    radial-gradient(720px 420px at 88% -10%, rgba(6,147,227,.08), transparent 60%),
-    radial-gradient(680px 400px at 6% 110%, rgba(250,93,41,.08), transparent 55%),
-    var(--bg);
-}
-.invite{
-  position:relative;max-width:860px;margin:0 auto;background:var(--white);
-  border-radius:24px;padding:clamp(40px,6vw,68px) clamp(26px,6vw,72px);
-  box-shadow:0 34px 80px rgba(0,0,0,.10);
-  border:1px solid rgba(0,0,0,.06);overflow:hidden;
-}
-.invite::before{content:"";position:absolute;inset:14px;border:1.5px solid rgba(250,93,41,.26);border-radius:15px;pointer-events:none}
-.invite::after{content:"";position:absolute;top:-70px;right:-70px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(6,147,227,.10),transparent 70%);pointer-events:none}
+.invite{position:relative;max-width:900px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:clamp(36px,6vw,64px) clamp(24px,6vw,64px)}
 .inv-inner{position:relative;z-index:1}
-.inv-title{text-align:center;font-weight:800;letter-spacing:.3em;font-size:clamp(24px,4.4vw,40px);color:var(--ink);line-height:1.1}
-.inv-eyebrow{text-align:center;color:var(--accent);font-weight:600;letter-spacing:.16em;font-size:13px;text-transform:uppercase;margin-bottom:10px}
-.inv-deco{display:flex;align-items:center;justify-content:center;gap:14px;margin:18px 0 40px}
-.inv-deco .ln{height:1px;width:clamp(40px,12vw,90px);background:linear-gradient(90deg,transparent,rgba(0,0,0,.22))}
-.inv-deco .ln.r{background:linear-gradient(90deg,rgba(0,0,0,.22),transparent)}
-.inv-deco .dm{color:var(--accent);font-size:13px}
-
-.inv-row{display:grid;grid-template-columns:118px 1fr;gap:16px;padding:18px 4px;border-bottom:1px dashed rgba(0,0,0,.13);align-items:baseline}
-.inv-row:first-of-type{border-top:1px dashed rgba(0,0,0,.13)}
+.inv-eyebrow{text-align:center;color:var(--accent);margin-bottom:12px}
+.inv-title{text-align:center;font-family:var(--disp);font-weight:800;letter-spacing:.12em;font-size:clamp(26px,4.4vw,42px);color:var(--ink);line-height:1.05}
+.inv-deco{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px 0 38px}
+.inv-deco .ln{height:1px;width:clamp(40px,12vw,100px);background:var(--line-2)}
+.inv-deco .dm{color:var(--accent);font-size:12px}
+.inv-row{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:18px 4px;border-bottom:1px solid var(--line);align-items:baseline}
+.inv-row:first-of-type{border-top:1px solid var(--line)}
 .inv-key{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink);font-size:15px;white-space:nowrap}
-.inv-key .di{color:var(--accent);font-size:12px}
+.inv-key .di{color:var(--accent);font-size:11px}
 .inv-val{font-size:16px;color:var(--ink2);font-weight:500;line-height:1.6}
 .inv-val strong{color:var(--ink);font-weight:700}
-.inv-val .place-link{color:var(--cyan);font-weight:600;border-bottom:1px solid rgba(6,147,227,.35)}
-
-.inv-notice{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.inv-val .place-link{color:var(--slate);font-weight:600;border-bottom:1px solid rgba(68,89,106,.4)}
+.inv-notice{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:700px){.inv-notice{grid-template-columns:1fr}}
-.inv-box{background:var(--bg);border-radius:15px;padding:26px;border:1px solid rgba(0,0,0,.05)}
-.inv-box h4{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;margin-bottom:14px;letter-spacing:-0.01em}
-.inv-box h4 .bdg{font-size:11px;font-weight:700;background:var(--accent);color:#fff;padding:4px 11px;border-radius:999px;letter-spacing:.04em}
-.inv-box.dep h4 .bdg{background:var(--cyan)}
+.inv-box{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.inv-box h4{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;margin-bottom:14px}
+.inv-box h4 .bdg{font-family:var(--disp);font-size:11px;font-weight:700;background:var(--accent);color:#fff;padding:4px 11px;border-radius:999px;letter-spacing:.04em}
+.inv-box.dep h4 .bdg{background:var(--slate)}
 .inv-box ul{list-style:none}
 .inv-box li{position:relative;padding-left:18px;font-size:14px;color:var(--ink2);margin:10px 0;line-height:1.65}
 .inv-box li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.inv-box.dep li::before{background:var(--cyan)}
+.inv-box.dep li::before{background:var(--slate)}
 .inv-box li strong{color:var(--ink);font-weight:700}
 @media(max-width:640px){.inv-row{grid-template-columns:1fr;gap:4px;padding:16px 4px}.inv-key{white-space:normal}}
 
-/* ---------- CTA / footer ---------- */
-.cta{
-  background:linear-gradient(135deg,rgb(6,147,227),rgb(155,81,224));
-  color:#fff;text-align:center;padding:120px 0;
-}
-.cta h2{font-size:clamp(30px,5vw,58px);font-weight:800;letter-spacing:-0.03em;line-height:1.08}
-.cta p{margin:22px auto 0;max-width:560px;font-size:clamp(15px,2vw,18px);opacity:.92}
-.btn{
-  display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 30px;margin-top:38px;
-  background:var(--ink);color:#fff;border-radius:var(--radius-sm);font-weight:600;font-size:15px;
-  border:none;cursor:pointer;transition:background .3s var(--ease),transform .3s var(--ease)
-}
-.btn:hover{background:#000;transform:translateY(-3px)}
-.btn.light{background:#fff;color:var(--ink)}
-.btn.light:hover{background:#f0f0f0}
-footer{background:var(--ink);color:#bdbdbd;padding:46px 0;font-size:14px}
+.cta{background:var(--ink);color:var(--paper);text-align:center;padding:clamp(90px,14vw,150px) 0}
+.cta h2{font-family:var(--disp);font-size:clamp(32px,6vw,68px);font-weight:800;letter-spacing:-0.03em;line-height:1}
+.cta p{margin:24px auto 0;max-width:540px;font-size:clamp(15px,2vw,18px);color:rgba(243,240,231,.72)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;margin-top:38px;background:var(--accent);color:#fff;border-radius:var(--radius);font-family:var(--disp);font-weight:600;font-size:15px;border:1px solid var(--accent);cursor:pointer;transition:all .25s var(--ease)}
+.btn:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
+.btn.light{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn.light:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
+footer{background:var(--ink);color:#9c988d;padding:44px 0;font-size:13.5px}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-footer .fbrand{color:#fff;font-weight:700;font-size:16px}
-footer a{color:#bdbdbd;transition:color .3s var(--ease)}
+footer .fbrand{color:var(--paper);font-family:var(--disp);font-weight:700;font-size:15px}
+footer a{color:#9c988d;transition:color .25s var(--ease)}
 footer a:hover{color:var(--accent)}
 </style>
 </head>
@@ -350,35 +219,27 @@ footer a:hover{color:var(--accent)}
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <span class="venue"><span class="pin">📍</span> 금산군 추부면 그림같은집</span>
-        <span class="eyebrow"><span class="bar"></span> 2026 · 대전 · 1박 2일 모임</span>
-        <h1>
-          <span class="line"><span>늘벗 11기</span></span>
-          <span class="line"><span>대전에서</span></span>
-          <span class="line"><span><span class="accent">함께</span> 하는 시간</span></span>
-        </h1>
-        <p class="sub">금산 추부 「그림같은 집」 펜션에서 보내는 1박 2일. 가든 파인다이닝 만찬과 캠프파이어 여흥, 이튿날 만인산 둘레길 산행까지 — 늘벗 11기가 함께 만드는 특별한 여행에 초대합니다.</p>
-        <div class="facts">
-          <span class="chip"><span class="ic">📅</span> 2026.10.17–18 · 1박 2일</span>
-          <span class="chip"><span class="ic">🥾</span> 만인산 둘레길 산행</span>
-          <span class="chip"><span class="ic">🍽️</span> 정성 가득 파인다이닝</span>
-          <span class="chip"><span class="ic">🙋</span> 대표 이선우</span>
-        </div>
-      </div>
-      <div class="hero-media">
-        <figure>
-          <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-label="금산군 추부면 그림같은집 숙소 영상">
-            <source src="Venue.mp4" type="video/mp4" />
-          </video>
-          <figcaption><span class="pin">📍</span> 금산군 추부면 그림같은집</figcaption>
-        </figure>
-      </div>
+  <div class="wrap hero-inner">
+    <span class="kicker">2026.10.17–18 · 금산 가을 모임</span>
+    <h1 class="hero-title">
+      <span class="l"><span>늘벗 11기</span></span>
+      <span class="l"><span>금산에서</span></span>
+      <span class="l"><span><em>함께.</em></span></span>
+    </h1>
+    <div class="hero-tags">
+      <span>#1박2일</span><span>#금산추부</span><span>#그림같은집</span><span>#가든파티</span><span>#둘레길산행</span><span>#불멍</span><span>#미식</span>
     </div>
+    <p class="hero-sub">금산 추부 「그림같은 집」 펜션에서 보내는 1박 2일 — 가든 파인다이닝 만찬과 캠프파이어 여흥, 이튿날 만인산 둘레길 산행까지.</p>
+    <figure class="hero-video-card">
+      <div class="hvc-frame">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-label="금산군 추부면 그림같은집 숙소 영상">
+          <source src="Venue.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <figcaption class="hvc-cap">📍 금산군 추부면 · 그림같은 집</figcaption>
+    </figure>
   </div>
-  <div class="scroll-hint">Scroll</div>
+  <div class="scroll-hint">Scroll ↓</div>
 </section>
 
 <!-- NOTICE / 안내장 -->
@@ -423,7 +284,7 @@ footer a:hover{color:var(--accent)}
         </div>
 
         <div class="inv-box coop" style="margin-top:20px">
-          <h4><span class="bdg" style="background:var(--mint);color:#15402f">협조</span> 함께 챙겨주세요</h4>
+          <h4><span class="bdg" style="background:var(--mint);color:#ffffff">협조</span> 함께 챙겨주세요</h4>
           <ul>
             <li>술을 즐기는 분들은 <strong>각자 원하는 주류를 지참</strong> 해 주세요 · <strong>BYOB!</strong></li>
             <li><strong>골프 퍼터·골프공</strong>을 가져올 수 있는 분들의 대여 협조 부탁드립니다</li>
@@ -644,11 +505,6 @@ footer a:hover{color:var(--accent)}
   </div>
 </section>
 
-<!-- wave divider into dark dining -->
-<div class="wave" aria-hidden="true">
-  <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#222222" d="M0,64 C240,120 480,0 720,32 C960,64 1200,128 1440,72 L1440,120 L0,120 Z"></path></svg>
-</div>
-
 <!-- DINING -->
 <section class="dining" id="dining">
   <div class="wrap">
@@ -659,15 +515,15 @@ footer a:hover{color:var(--accent)}
     </div>
 
     <div class="course-nav reveal">
-      <span class="course-pill"><span class="d" style="background:#7BDCB5"></span>전채 Appetizer</span>
-      <span class="course-pill"><span class="d" style="background:#FA5D29"></span>메인 Main</span>
-      <span class="course-pill"><span class="d" style="background:#FFF083"></span>후식 Dessert</span>
-      <span class="course-pill"><span class="d" style="background:#0693E3"></span>안주 Night</span>
+      <span class="course-pill"><span class="d" style="background:#6E7A43"></span>전채 Appetizer</span>
+      <span class="course-pill"><span class="d" style="background:#E0502A"></span>메인 Main</span>
+      <span class="course-pill"><span class="d" style="background:#C2832B"></span>후식 Dessert</span>
+      <span class="course-pill"><span class="d" style="background:#44596A"></span>안주 Night</span>
     </div>
 
     <div class="recipe-grid">
       <!-- 전채 -->
-      <article class="recipe reveal" style="--course-c:#7BDCB5">
+      <article class="recipe reveal" style="--course-c:#6E7A43">
         <div class="rc-course">전채 · Appetizer</div>
         <span class="rc-emoji">🥗</span>
         <h3>가든 샐러드</h3>
@@ -676,7 +532,7 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>양상추</span><span>오이·당근·피망</span><span>메추리알</span><span>유자폰즈</span><span>망고소스</span></div>
       </article>
 
-      <article class="recipe reveal" style="--course-c:#7BDCB5">
+      <article class="recipe reveal" style="--course-c:#6E7A43">
         <div class="rc-course">전채 · Appetizer</div>
         <span class="rc-emoji">🍄</span>
         <h3>양송이 스프</h3>
@@ -685,7 +541,7 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>양송이</span><span>양파</span><span>버터</span><span>우유·생크림</span></div>
       </article>
 
-      <article class="recipe reveal" style="--course-c:#7BDCB5">
+      <article class="recipe reveal" style="--course-c:#6E7A43">
         <div class="rc-course">전채 · Appetizer</div>
         <span class="rc-emoji">🍲</span>
         <h3>비프 스튜</h3>
@@ -695,7 +551,7 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- 메인 -->
-      <article class="recipe reveal" style="--course-c:#FA5D29">
+      <article class="recipe reveal" style="--course-c:#E0502A">
         <div class="rc-course">메인 · Main</div>
         <span class="rc-emoji">🍤</span>
         <h3>모듬 튀김</h3>
@@ -704,7 +560,7 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>깐새우·왕새우</span><span>오징어</span><span>모듬 야채</span><span>가지</span><span>식용유</span></div>
       </article>
 
-      <article class="recipe reveal" style="--course-c:#FA5D29">
+      <article class="recipe reveal" style="--course-c:#E0502A">
         <div class="rc-course">메인 · Main</div>
         <span class="rc-emoji">🐟</span>
         <h3>참치회</h3>
@@ -713,7 +569,7 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>냉동참치 대뱃살</span><span>생와사비</span><span>쯔유</span></div>
       </article>
 
-      <article class="recipe reveal" style="--course-c:#FA5D29">
+      <article class="recipe reveal" style="--course-c:#E0502A">
         <div class="rc-course">메인 · Main</div>
         <span class="rc-emoji">🍖</span>
         <h3>등갈비 바비큐</h3>
@@ -722,7 +578,7 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>등갈비</span><span>바비큐 소스</span><span>참나무 숯</span><span>소금·후추</span></div>
       </article>
 
-      <article class="recipe reveal" style="--course-c:#FA5D29">
+      <article class="recipe reveal" style="--course-c:#E0502A">
         <div class="rc-course">메인 · Main</div>
         <span class="rc-emoji">🥩</span>
         <h3>풀드 포크</h3>
@@ -731,7 +587,7 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>목살</span><span>머스타드</span><span>월계수잎·로즈마리</span><span>바비큐소스</span></div>
       </article>
 
-      <article class="recipe reveal" style="--course-c:#FA5D29">
+      <article class="recipe reveal" style="--course-c:#E0502A">
         <div class="rc-course">메인 · Main</div>
         <span class="rc-emoji">🍚</span>
         <h3>밥 · 두부 두루치기 · 밑반찬</h3>
@@ -741,7 +597,7 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- 후식 -->
-      <article class="recipe reveal" style="--course-c:#FFF083">
+      <article class="recipe reveal" style="--course-c:#C2832B">
         <div class="rc-course">후식 · Dessert</div>
         <span class="rc-emoji">🍰</span>
         <h3>성심당 시루 &amp; 커피</h3>
@@ -751,7 +607,7 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- 안주 -->
-      <article class="recipe reveal" style="--course-c:#0693E3">
+      <article class="recipe reveal" style="--course-c:#44596A">
         <div class="rc-course">안주 · 탕류</div>
         <span class="rc-emoji">🥘</span>
         <h3>참치김치찌개</h3>
@@ -760,7 +616,7 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>참치캔</span><span>김치</span><span>치킨스톡</span></div>
       </article>
 
-      <article class="recipe reveal" style="--course-c:#0693E3">
+      <article class="recipe reveal" style="--course-c:#44596A">
         <div class="rc-course">캠프파이어 · 안주</div>
         <span class="rc-emoji">🍢</span>
         <h3>꼬치구이</h3>
@@ -769,7 +625,7 @@ footer a:hover{color:var(--accent)}
         <div class="rc-ing"><span>닭꼬치·은행꼬치</span><span>꼬치류</span><span>모듬 넛트류</span></div>
       </article>
 
-      <article class="recipe reveal" style="--course-c:#FFF083">
+      <article class="recipe reveal" style="--course-c:#C2832B">
         <div class="rc-course">둘째날 · Morning</div>
         <span class="rc-emoji">🍚</span>
         <h3>북어 해장국 아침상</h3>
@@ -780,11 +636,6 @@ footer a:hover{color:var(--accent)}
     </div>
   </div>
 </section>
-
-<!-- wave divider back to light -->
-<div class="wave" aria-hidden="true">
-  <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#222222" d="M0,56 C240,0 480,120 720,88 C960,56 1200,-8 1440,48 L1440,0 L0,0 Z"></path></svg>
-</div>
 
 <!-- PREP -->
 <section class="prep" id="prep">
@@ -814,7 +665,7 @@ footer a:hover{color:var(--accent)}
 <!-- CTA -->
 <section class="cta">
   <div class="wrap reveal">
-    <h2>늘벗 11기,<br>대전에서 만나요</h2>
+    <h2>늘벗 11기,<br>금산에서 만나요</h2>
     <p>함께라서 더 특별한 1박 2일. 준비된 자료로 즐거운 여행을 함께 완성해요.</p>
     <a href="#top" class="btn light">↑ 처음으로</a>
   </div>
@@ -822,7 +673,7 @@ footer a:hover{color:var(--accent)}
 
 <footer>
   <div class="wrap">
-    <div class="fbrand">늘벗 11기 · 2026 대전 여행</div>
+    <div class="fbrand">늘벗 11기 · 2026 금산·대전 가을 모임</div>
     <div>대표 이선우 &nbsp;·&nbsp; <a href="https://github.com/dknife/NB11">GitHub 저장소</a></div>
   </div>
 </footer>
@@ -851,7 +702,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // header bg on scroll
 addEventListener('scroll',()=>{
-  document.querySelector('header').style.background=scrollY>40?'rgba(248,248,248,0.9)':'rgba(248,248,248,0.72)';
+  document.querySelector('header').style.background=scrollY>40?'rgba(243,240,231,0.96)':'rgba(243,240,231,0.75)';
 });
 </script>
 </body>
