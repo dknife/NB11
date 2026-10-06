@@ -94,13 +94,10 @@ section:not(.hero):not(.cta){border-top:1px solid var(--line)}
 .stat:nth-child(3) .num{color:var(--ink)}
 .stat:nth-child(4) .num{color:var(--olive)}
 
-.day-tabs{display:flex;gap:10px;margin-bottom:42px;flex-wrap:wrap}
-.day-tab{height:46px;padding:0 24px;border-radius:999px;border:1px solid var(--line-2);background:transparent;color:var(--ink2);font-family:var(--disp);font-weight:600;font-size:14px;cursor:pointer;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:9px}
-.day-tab .b{width:7px;height:7px;border-radius:50%;background:var(--muted)}
-.day-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.day-tab.active .b{background:var(--accent)}
-.day-panel{display:none}
-.day-panel.show{display:block;animation:fadeUp .5s var(--ease)}
+.day-block{margin-bottom:clamp(44px,7vw,78px)}
+.day-label{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.day-label .d-no{font-family:var(--disp);font-weight:700;font-size:clamp(22px,3.4vw,34px);letter-spacing:-0.02em;color:var(--ink)}
+.day-label .d-date{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 .tl{position:relative}
 .tl-row{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--line)}
 .tl-row:last-child{border-bottom:1px solid var(--line)}
@@ -319,16 +316,12 @@ footer a:hover{color:var(--accent)}
     <div class="sec-head reveal">
       <div class="sec-tag">Itinerary</div>
       <h2>시간 계획</h2>
-      <p>날짜를 선택해 하루의 흐름을 확인하세요.</p>
-    </div>
-
-    <div class="day-tabs reveal">
-      <button class="day-tab active" data-day="1"><span class="b"></span> 1일차</button>
-      <button class="day-tab" data-day="2"><span class="b"></span> 2일차</button>
+      <p>1박 2일, 하루의 흐름을 한눈에 확인하세요.</p>
     </div>
 
     <!-- DAY 1 -->
-    <div class="day-panel show reveal" data-panel="1">
+    <div class="day-block reveal">
+      <div class="day-label"><span class="d-no">Day 1</span><span class="d-date">10/17 토</span></div>
       <div class="tl">
         <div class="tl-row"><div class="tl-time">13:00~18:00</div><div class="tl-body">
           <div class="tl-title"><span class="em">🎈</span> 숙소 도착 · 자유 활동</div>
@@ -400,7 +393,8 @@ footer a:hover{color:var(--accent)}
     </div>
 
     <!-- DAY 2 -->
-    <div class="day-panel reveal" data-panel="2">
+    <div class="day-block reveal">
+      <div class="day-label"><span class="d-no">Day 2</span><span class="d-date">10/18 일</span></div>
       <div class="tl">
         <div class="tl-row"><div class="tl-time">08:00~10:00</div><div class="tl-body">
           <div class="tl-title"><span class="em">🍲</span> 아침 식사 · 오전 활동 · 퇴실</div>
@@ -683,16 +677,6 @@ footer a:hover{color:var(--accent)}
 const menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('menu');
 menuBtn.addEventListener('click',()=>menu.classList.toggle('open'));
 menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-
-// day tabs
-document.querySelectorAll('.day-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.day-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    const d=tab.dataset.day;
-    document.querySelectorAll('.day-panel').forEach(p=>p.classList.toggle('show',p.dataset.panel===d));
-  });
-});
 
 // reveal on scroll
 const io=new IntersectionObserver((entries)=>{
