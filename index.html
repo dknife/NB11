@@ -329,31 +329,48 @@ document.querySelectorAll('.trip').forEach(el=>io.observe(el));
 const ppt=document.getElementById('ppTrack');
 if(ppt){ ppt.setAttribute('aria-hidden','false'); ppt.innerHTML+=ppt.innerHTML; }
 
-// 입장 퀴즈 게이트
+// 입장 퀴즈 게이트 — 정답 평문 없이 PBKDF2-SHA256(솔트+20만회) 검증값만 저장
 (function(){
-  var QA=[{q:'상석이의 별명은?',a:'라라'},{q:'영민이의 별명은?',a:'쌍칼'}];
-  var pick=QA[Math.floor(Math.random()*QA.length)];
+  var SALT='c9b4e49fe8324281b0c623159d41f677', ITERS=200000;
+  var KEYS=['6f8cf787bdf9320956c79f45dd6c1d03a3d023f4e3b46fc721dad6df7a93796d',
+            '26cf8fffc357ac46c22e93dc07e15e18c843034f4cbb551144e22904c5c59e55'];
+  var Q=['상석이의 별명은?','영민이의 별명은?'];
+  var pick=Q[Math.floor(Math.random()*Q.length)];
   var gate=document.getElementById('gate'); if(!gate) return;
   var passed=false; try{ passed=sessionStorage.getItem('nb11_gate')==='1'; }catch(e){}
   if(passed){ gate.classList.add('pass'); setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); },50); return; }
-  document.getElementById('gateQ').innerHTML=pick.q.replace('별명',"<span class='accent'>별명</span>");
+  document.getElementById('gateQ').innerHTML=pick.replace('별명',"<span class='accent'>별명</span>");
   document.documentElement.style.overflow='hidden'; document.body.style.overflow='hidden';
-  var form=document.getElementById('gateForm'), inp=document.getElementById('gateInput'), msg=document.getElementById('gateMsg');
+  var form=document.getElementById('gateForm'), inp=document.getElementById('gateInput'),
+      msg=document.getElementById('gateMsg'), btn=form.querySelector('.gate-btn');
   setTimeout(function(){ inp.focus(); },350);
-  function norm(s){ return (s||'').replace(/\s+/g,'').trim(); }
+  function norm(s){ return (s||'').normalize('NFC').replace(/\s+/g,''); }
+  function toHex(buf){ return Array.prototype.map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2);}).join(''); }
+  function hexBytes(h){ var a=new Uint8Array(h.length/2); for(var i=0;i<a.length;i++) a[i]=parseInt(h.substr(i*2,2),16); return a; }
+  function verify(ans){
+    if(!(window.crypto&&crypto.subtle)) return Promise.resolve(false);
+    return crypto.subtle.importKey('raw', new TextEncoder().encode(norm(ans)), {name:'PBKDF2'}, false, ['deriveBits'])
+      .then(function(k){ return crypto.subtle.deriveBits({name:'PBKDF2',salt:hexBytes(SALT),iterations:ITERS,hash:'SHA-256'}, k, 256); })
+      .then(function(bits){ return KEYS.indexOf(toHex(bits))>=0; });
+  }
+  function fail(){
+    msg.textContent='정답이 아니에요. 다시 시도해 주세요.';
+    var c=gate.querySelector('.gate-card'); c.classList.remove('gate-shake'); void c.offsetWidth; c.classList.add('gate-shake');
+    inp.select();
+  }
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    if(norm(inp.value)===norm(pick.a)){
-      try{ sessionStorage.setItem('nb11_gate','1'); }catch(e){}
-      gate.classList.add('pass');
-      document.documentElement.style.overflow=''; document.body.style.overflow='';
-      setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); },700);
-    } else {
-      msg.textContent='정답이 아니에요. 다시 시도해 주세요.';
-      var card=gate.querySelector('.gate-card');
-      card.classList.remove('gate-shake'); void card.offsetWidth; card.classList.add('gate-shake');
-      inp.select();
-    }
+    btn.disabled=true; msg.textContent='확인 중…';
+    verify(inp.value).then(function(ok){
+      btn.disabled=false;
+      if(ok){
+        try{ sessionStorage.setItem('nb11_gate','1'); }catch(e){}
+        msg.textContent='';
+        gate.classList.add('pass');
+        document.documentElement.style.overflow=''; document.body.style.overflow='';
+        setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); },700);
+      } else { fail(); }
+    }).catch(function(){ btn.disabled=false; fail(); });
   });
 })();
 </script>
