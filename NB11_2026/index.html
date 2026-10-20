@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>늘벗 11기 · 2026 금산·대전 여행</title>
+<meta name="description" content="늘벗 11기 2026년 금산·대전 여행 사진 갤러리" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/trip.css" />
+<style>
+body{--accent:#E0502A}
+.plan-foot{margin-top:clamp(40px,6vw,64px);border-top:1px solid var(--line);padding-top:clamp(32px,5vw,48px)}
+.plan-link{display:flex;align-items:center;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:clamp(22px,3vw,30px) clamp(24px,4vw,36px);transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.plan-link:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.plan-link .pic{font-size:30px;flex:0 0 auto}
+.plan-link .tx{flex:1}
+.plan-link .tt{font-family:var(--disp);font-size:clamp(17px,2.4vw,21px);font-weight:700;letter-spacing:-0.01em;color:var(--ink)}
+.plan-link .ds{margin-top:5px;color:var(--ink2);font-size:14.5px}
+.plan-link .go{font-family:var(--disp);font-size:14px;font-weight:600;color:var(--accent);white-space:nowrap}
+@media(max-width:560px){.plan-link{flex-wrap:wrap}.plan-link .go{width:100%}}
+</style>
+</head>
+<body>
+<a href="#gallery" class="skip">갤러리로 건너뛰기</a>
+
+<header>
+  <div class="wrap">
+    <a href="../index.html" class="brand"><span class="dot"></span> 늘벗 11기</a>
+    <a href="../index.html" class="back">← 여행 목록</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker">2026.10.17–18 · 늘벗 11기 여행</span>
+    <h1 class="hero-title"><span>금산 · 대전</span></h1>
+    <p class="hero-sub">추부 「그림같은 집」 펜션에서 보낸 1박 2일 — 가든 파인다이닝 만찬과 캠프파이어, 만인산 둘레길 산행까지. 함께한 순간들을 사진으로 만나요.</p>
+    <div class="hero-tags"><span>#금산</span><span>#1박2일</span><span>#가든파티</span><span>#불멍</span><span>#둘레길</span></div>
+  </div>
+</section>
+
+<section class="gallery-sec" id="gallery-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="sec-tag">Gallery</div><h2>여행 사진</h2></div>
+      <span class="meta">Photos · 68</span>
+    </div>
+    <div id="gallery" class="nb-gallery"></div>
+
+    <div class="plan-foot">
+      <a class="plan-link" href="plan.html">
+        <span class="pic">📋</span>
+        <span class="tx">
+          <span class="tt">여행 안내 자료 보기</span>
+          <span class="ds">안내장 · 개요 · 일정 · 미식(파인다이닝) · 준비물 — 준비 과정의 기록</span>
+        </span>
+        <span class="go">자료 보기 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">늘벗 11기 · 2026 금산·대전 여행</div>
+    <div>대표 이선우 &nbsp;·&nbsp; <a href="https://github.com/dknife/NB11">GitHub 저장소</a></div>
+  </div>
+</footer>
+
+<script>window.TRIP={folder:'Photos',count:68};</script>
+<script src="../assets/gallery.js"></script>
+</body>
+</html>

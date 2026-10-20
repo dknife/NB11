@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>늘벗 11기 · 2028 칭다오(靑島) 여행</title>
+<meta name="description" content="늘벗 11기 2028년 중국 칭다오(靑島) 여행 — 계획 중" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#F3F0E7; --paper-2:#EAE6DA; --surface:#FBF9F3; --white:#FFFFFF;
+  --ink:#1C1B17; --ink2:#45413A; --muted:#8B8676;
+  --line:rgba(28,27,23,.14); --line-2:rgba(28,27,23,.30);
+  --accent:#44596A; --olive:#6E7A43; --amber:#C2832B; --slate:#44596A;
+  --radius:4px; --radius-sm:2px;
+  --maxw:1200px; --pad:clamp(24px,6vw,72px);
+  --disp:"Space Grotesk","Noto Sans KR",sans-serif;
+  --body:"Noto Sans KR","Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.kicker,.sec-tag{font-family:var(--disp);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 20px;z-index:1000}
+.skip:focus{left:0}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;display:flex;align-items:center;background:rgba(243,240,231,0.75);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.01em}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+nav.menu{display:flex;gap:30px;font-family:var(--disp);font-size:13px;font-weight:500;letter-spacing:.02em}
+nav.menu a{color:var(--ink2);position:relative;transition:color .25s var(--ease)}
+nav.menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--accent);transition:width .25s var(--ease)}
+nav.menu a:hover{color:var(--ink)}
+nav.menu a:hover::after{width:100%}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:22px;color:var(--ink)}
+@media(max-width:768px){nav.menu{display:none}.menu-btn{display:block}
+  nav.menu.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);padding:8px 0;border-bottom:1px solid var(--line)}
+  nav.menu.open a{padding:14px var(--pad)}
+  nav.menu.open a::after{display:none}
+}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:120px 0 80px;text-align:center;overflow:hidden}
+.hero-inner{display:flex;flex-direction:column;align-items:center}
+.hero .kicker{margin-bottom:28px;opacity:0;animation:fadeUp .9s var(--ease) .1s forwards}
+.hero .kicker::before,.hero .kicker::after{content:"—";margin:0 10px;color:var(--line-2)}
+.hero-title{font-family:var(--disp);font-weight:800;letter-spacing:-0.035em;line-height:.95;font-size:clamp(48px,10.5vw,150px)}
+.hero-title .l{display:block;overflow:hidden}
+.hero-title .l span{display:block;transform:translateY(105%);animation:reveal 1.05s var(--ease) forwards}
+.hero-title .l:nth-child(2) span{animation-delay:.1s}
+.hero-title .l:nth-child(3) span{animation-delay:.2s}
+.hero-title em{font-style:normal;color:var(--accent)}
+.hero-title .hanja{font-family:var(--body);font-weight:500;color:var(--muted);font-size:.42em;letter-spacing:0;vertical-align:middle}
+@keyframes reveal{to{transform:translateY(0)}}
+.hero-tags{margin-top:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;font-family:var(--disp);font-weight:500;font-size:clamp(14px,1.7vw,17px);opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
+.hero-tags span{color:var(--accent)}
+.hero-sub{margin-top:30px;max-width:620px;font-size:clamp(15px,1.9vw,18px);color:var(--ink2);opacity:0;animation:fadeUp .9s var(--ease) .62s forwards}
+.hero-badge{margin-top:34px;display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);background:rgba(194,131,43,.16);padding:8px 16px;border-radius:999px;opacity:0;animation:fadeUp .9s var(--ease) .74s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+section{position:relative;padding:clamp(72px,12vw,138px) 0}
+section:not(.hero){border-top:1px solid var(--line)}
+.sec-head{max-width:820px;margin-bottom:clamp(40px,6vw,66px)}
+.sec-tag{margin-bottom:18px}
+.sec-head h2{font-family:var(--disp);font-size:clamp(32px,5.5vw,60px);font-weight:800;letter-spacing:-0.025em;line-height:1.03}
+.sec-head p{margin-top:20px;color:var(--ink2);font-size:clamp(15px,1.8vw,18px);max-width:680px}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important}}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.stat-grid{grid-template-columns:1fr}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.stat:hover{transform:translateY(-4px);border-color:var(--line-2)}
+.stat .num{font-family:var(--disp);font-size:46px;font-weight:700;letter-spacing:-0.03em;line-height:1;color:var(--slate)}
+.stat .num small{font-size:18px;font-weight:600;color:var(--muted)}
+.stat .lab{margin-top:14px;color:var(--ink2);font-size:14.5px}
+
+.idea-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:980px){.idea-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.idea-grid{grid-template-columns:1fr}}
+.idea{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .25s var(--ease),border-color .25s var(--ease);position:relative;overflow:hidden}
+.idea::before{content:"";position:absolute;left:0;top:0;height:100%;width:3px;background:var(--accent)}
+.idea:hover{transform:translateY(-5px);border-color:var(--line-2)}
+.idea .ic{font-size:30px;margin-bottom:14px;display:block}
+.idea h3{font-size:20px;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px}
+.idea p{font-size:14.5px;color:var(--ink2);line-height:1.7}
+
+.todo{max-width:760px}
+.todo-row{display:grid;grid-template-columns:40px 1fr;gap:4px 16px;padding:20px 4px;border-bottom:1px solid var(--line);align-items:baseline}
+.todo-row:first-child{border-top:1px solid var(--line)}
+.todo-no{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--accent)}
+.todo-t{font-size:17px;font-weight:700;color:var(--ink)}
+.todo-d{grid-column:2;color:var(--ink2);font-size:14.5px;margin-top:4px}
+
+.cta{background:var(--ink);color:var(--paper);text-align:center;padding:clamp(90px,14vw,150px) 0;border-top:none}
+.cta h2{font-family:var(--disp);font-size:clamp(32px,6vw,68px);font-weight:800;letter-spacing:-0.03em;line-height:1}
+.cta p{margin:24px auto 0;max-width:540px;font-size:clamp(15px,2vw,18px);color:rgba(243,240,231,.72)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;margin-top:38px;background:var(--paper);color:var(--ink);border-radius:var(--radius);font-family:var(--disp);font-weight:600;font-size:15px;border:1px solid var(--paper);cursor:pointer;transition:all .25s var(--ease)}
+.btn:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
+footer{background:var(--ink);color:#9c988d;padding:44px 0;font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .fbrand{color:var(--paper);font-family:var(--disp);font-weight:700;font-size:15px}
+footer a{color:#9c988d;transition:color .25s var(--ease)}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<a href="#overview" class="skip">본문으로 건너뛰기</a>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="dot"></span> 늘벗 11기</a>
+    <nav class="menu" id="menu">
+      <a href="../index.html">← 여행 목록</a>
+      <a href="#overview">개요</a>
+      <a href="#ideas">가고 싶은 곳</a>
+      <a href="#todo">준비 사항</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <span class="kicker">2028 · 늘벗 11기 해외 여행</span>
+    <h1 class="hero-title">
+      <span class="l"><span>늘벗 11기</span></span>
+      <span class="l"><span><em>칭다오</em><span class="hanja">靑島</span></span></span>
+      <span class="l"><span>에서.</span></span>
+    </h1>
+    <div class="hero-tags">
+      <span>#해외여행</span><span>#중국산둥</span><span>#칭다오맥주</span><span>#해안도시</span><span>#독일거리</span>
+    </div>
+    <p class="hero-sub">2028년, 늘벗 11기의 첫 해외 여행. 중국 산둥반도의 바다 도시 칭다오(靑島)로 떠납니다. 상세 일정은 함께 채워갈 예정입니다.</p>
+    <span class="hero-badge">● 계획 중 · Coming Soon</span>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview" id="overview">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Overview</div>
+      <h2>한눈에 보는 여행</h2>
+      <p>중국 산둥반도 동쪽 끝의 해안 도시 칭다오. 독일 조계지 시절의 붉은 지붕 거리, 잔교(棧橋)와 해변, 그리고 칭다오 맥주의 고향에서 보내는 늘벗 11기의 해외 여행입니다. 아래 정보는 초안이며 함께 다듬어갑니다.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="num">2028</div><div class="lab">여행 예정 연도 (일정 미정)</div></div>
+      <div class="stat"><div class="num">🇨🇳</div><div class="lab">중국 산둥성 칭다오(靑島)</div></div>
+      <div class="stat"><div class="num">3<small>박4일</small></div><div class="lab">예상 일정 (가안)</div></div>
+      <div class="stat"><div class="num">✈️</div><div class="lab">인천 → 칭다오 약 1시간 30분</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEAS -->
+<section class="ideas" id="ideas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Wish List</div>
+      <h2>가고 싶은 곳</h2>
+      <p>칭다오에서 함께 가보면 좋을 후보지들. 자유롭게 추가·수정해 주세요.</p>
+    </div>
+    <div class="idea-grid">
+      <article class="idea reveal"><span class="ic">🍺</span><h3>칭다오 맥주 박물관</h3><p>1903년 독일식 양조장에서 시작된 칭다오 맥주의 역사. 갓 뽑은 생맥주 시음까지.</p></article>
+      <article class="idea reveal"><span class="ic">🌉</span><h3>잔교 (棧橋)</h3><p>바다 위로 뻗은 칭다오의 상징적인 다리. 회란각과 해안 산책로.</p></article>
+      <article class="idea reveal"><span class="ic">🏛️</span><h3>팔대관 (八大關)</h3><p>유럽풍 별장과 가로수길이 늘어선 이국적인 거리. 산책과 사진 명소.</p></article>
+      <article class="idea reveal"><span class="ic">⛪</span><h3>천주교당 · 기독교당</h3><p>독일 조계지 시절의 붉은 지붕 성당들. 구시가의 랜드마크.</p></article>
+      <article class="idea reveal"><span class="ic">🏖️</span><h3>제1·제2 해수욕장</h3><p>완만한 해변과 탁 트인 바다. 여유로운 오후 산책.</p></article>
+      <article class="idea reveal"><span class="ic">🦪</span><h3>피차이위엔 · 해산물 거리</h3><p>칭다오의 먹거리 골목. 해산물과 맥주, 길거리 간식.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- TODO -->
+<section class="todo-sec" id="todo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Checklist</div>
+      <h2>준비 사항</h2>
+      <p>해외 여행인 만큼 미리 챙겨야 할 것들. 진행하며 업데이트합니다.</p>
+    </div>
+    <div class="todo reveal">
+      <div class="todo-row"><div class="todo-no">01</div><div class="todo-t">여권 · 비자 확인</div><div class="todo-d">여권 유효기간(6개월 이상) 점검, 중국 입국 비자/무비자 조건 확인.</div></div>
+      <div class="todo-row"><div class="todo-no">02</div><div class="todo-t">항공 · 숙소 예약</div><div class="todo-d">인천–칭다오 항공편, 시내/해변 인근 숙소 후보 조사 및 가격 비교.</div></div>
+      <div class="todo-row"><div class="todo-no">03</div><div class="todo-t">일정 · 예산 확정</div><div class="todo-d">3박 4일 가안 기준 동선·예산 초안 작성, 참가 인원 조사.</div></div>
+      <div class="todo-row"><div class="todo-no">04</div><div class="todo-t">현지 준비</div><div class="todo-d">환전/카드, 유심·로밍, 번역 앱, 현지 교통(디디·지하철) 사전 확인.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap reveal">
+    <h2>2028,<br>칭다오에서 만나요</h2>
+    <p>아직 계획 단계입니다. 아이디어와 의견을 모아 함께 여행을 완성해요.</p>
+    <a href="../index.html" class="btn">← 여행 목록으로</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">늘벗 11기 · 2028 칭다오(靑島) 여행</div>
+    <div>대표 이선우 &nbsp;·&nbsp; <a href="https://github.com/dknife/NB11">GitHub 저장소</a></div>
+  </div>
+</footer>
+
+<script>
+// mobile menu
+const menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('menu');
+menuBtn.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+// reveal on scroll
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// header bg on scroll
+addEventListener('scroll',()=>{
+  document.querySelector('header').style.background=scrollY>40?'rgba(243,240,231,0.96)':'rgba(243,240,231,0.75)';
+});
+</script>
+</body>
+</html>

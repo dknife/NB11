@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>늘벗 11기 · 2026 금산·대전 가을 모임</title>
-<meta name="description" content="늘벗 11기 2026년 금산·대전 1박 2일 가을 모임 — 일정·안내·가든 파인다이닝" />
+<title>늘벗 11기 · 여행</title>
+<meta name="description" content="늘벗 11기 동기회 여행 아카이브 — 2026 금산·대전, 2028 칭다오(靑島)" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
@@ -14,7 +14,6 @@
   --ink:#1C1B17; --ink2:#45413A; --muted:#8B8676;
   --line:rgba(28,27,23,.14); --line-2:rgba(28,27,23,.30);
   --accent:#E0502A; --olive:#6E7A43; --amber:#C2832B; --slate:#44596A;
-  --mint:#6E7A43; --cyan:#44596A; --yellow:#C2832B;
   --radius:4px; --radius-sm:2px;
   --maxw:1200px; --pad:clamp(24px,6vw,72px);
   --disp:"Space Grotesk","Noto Sans KR",sans-serif;
@@ -23,671 +22,340 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
-.kicker,.sec-tag,.inv-eyebrow{font-family:var(--disp);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);width:100%}
+.kicker{font-family:var(--disp);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
 
 .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 20px;z-index:1000}
 .skip:focus{left:0}
 
-header{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;display:flex;align-items:center;background:rgba(243,240,231,0.75);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);transition:background .3s var(--ease)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;display:flex;align-items:center;background:rgba(243,240,231,0.75);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.01em}
 .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
-nav.menu{display:flex;gap:30px;font-family:var(--disp);font-size:13px;font-weight:500;letter-spacing:.02em}
-nav.menu a{color:var(--ink2);position:relative;transition:color .25s var(--ease)}
-nav.menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--accent);transition:width .25s var(--ease)}
-nav.menu a:hover{color:var(--ink)}
-nav.menu a:hover::after{width:100%}
-.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:22px;color:var(--ink)}
-@media(max-width:768px){nav.menu{display:none}.menu-btn{display:block}
-  nav.menu.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);padding:8px 0;border-bottom:1px solid var(--line)}
-  nav.menu.open a{padding:14px var(--pad)}
-  nav.menu.open a::after{display:none}
-}
+.brand-sub{font-family:var(--disp);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:560px){.brand-sub{display:none}}
 
-.hero{position:relative;min-height:94vh;display:flex;align-items:center;padding:120px 0 80px;background:var(--paper);text-align:center;overflow:hidden}
-.hero-inner{display:flex;flex-direction:column;align-items:center}
-.hero .kicker{margin-bottom:28px;opacity:0;animation:fadeUp .9s var(--ease) .1s forwards}
+/* HERO */
+.hero{position:relative;padding:150px 0 70px;text-align:center}
+.hero .kicker{margin-bottom:26px;opacity:0;animation:fadeUp .9s var(--ease) .1s forwards}
 .hero .kicker::before,.hero .kicker::after{content:"—";margin:0 10px;color:var(--line-2)}
-.hero-title{font-family:var(--disp);font-weight:800;letter-spacing:-0.035em;line-height:.95;font-size:clamp(48px,10.5vw,150px)}
+.hero-title{font-family:var(--disp);font-weight:800;letter-spacing:-0.035em;line-height:.95;font-size:clamp(52px,12vw,160px)}
 .hero-title .l{display:block;overflow:hidden}
 .hero-title .l span{display:block;transform:translateY(105%);animation:reveal 1.05s var(--ease) forwards}
 .hero-title .l:nth-child(2) span{animation-delay:.1s}
-.hero-title .l:nth-child(3) span{animation-delay:.2s}
 .hero-title em{font-style:normal;color:var(--accent)}
 @keyframes reveal{to{transform:translateY(0)}}
-.hero-tags{margin-top:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;font-family:var(--disp);font-weight:500;font-size:clamp(14px,1.7vw,17px);opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
-.hero-tags span{color:var(--accent)}
-.hero-tags span:hover{text-decoration:underline;text-underline-offset:3px}
-.hero-sub{margin-top:30px;max-width:620px;font-size:clamp(15px,1.9vw,18px);color:var(--ink2);opacity:0;animation:fadeUp .9s var(--ease) .62s forwards}
-.hero-video-card{position:relative;margin-top:46px;width:clamp(200px,24vw,260px);opacity:0;animation:fadeUp 1s var(--ease) .74s forwards}
-.hvc-frame{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:334/560;background:#000;border:1px solid var(--line-2)}
-.hero-video{width:100%;height:100%;object-fit:cover;display:block}
-.hvc-cap{margin-top:12px;font-family:var(--disp);font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.hero-sub{margin:30px auto 0;max-width:600px;font-size:clamp(15px,1.9vw,18px);color:var(--ink2);opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--disp);font-size:11px;letter-spacing:.25em;color:var(--muted);text-transform:uppercase;opacity:0;animation:fadeUp 1s var(--ease) 1s forwards}
 
-section{position:relative;padding:clamp(72px,12vw,138px) 0}
-section:not(.hero):not(.cta){border-top:1px solid var(--line)}
-.sec-head{max-width:820px;margin-bottom:clamp(40px,6vw,66px)}
-.sec-tag{margin-bottom:18px}
-.sec-head h2{font-family:var(--disp);font-size:clamp(32px,5.5vw,60px);font-weight:800;letter-spacing:-0.025em;line-height:1.03}
-.sec-head p{margin-top:20px;color:var(--ink2);font-size:clamp(15px,1.8vw,18px);max-width:680px}
+/* TRIPS */
+.trips{flex:1;padding:clamp(40px,7vw,80px) 0 clamp(80px,12vw,130px)}
+.trips-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:34px;flex-wrap:wrap}
+.trips-head h2{font-family:var(--disp);font-size:clamp(22px,3.4vw,32px);font-weight:800;letter-spacing:-0.02em}
+.trips-head .count{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.trip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:980px){.trip-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.trip-grid{grid-template-columns:1fr}}
 
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important}}
+.trip{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:340px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:clamp(28px,4vw,44px);overflow:hidden;opacity:0;transform:translateY(28px);transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
+.trip.in{opacity:1;transform:none}
+.trip::before{content:"";position:absolute;left:0;top:0;height:100%;width:4px;background:var(--trip-c,var(--accent))}
+.trip:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 18px 40px -24px rgba(28,27,23,.4)}
+.trip-year{font-family:var(--disp);font-size:clamp(44px,7vw,84px);font-weight:700;letter-spacing:-0.04em;line-height:.9;color:var(--trip-c,var(--accent))}
+.trip-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.trip-flag{font-size:clamp(34px,5vw,54px);line-height:1}
+.trip-place{margin-top:20px;font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-0.02em;color:var(--ink)}
+.trip-place .hanja{color:var(--muted);font-weight:500;font-size:.62em;margin-left:8px}
+.trip-desc{margin-top:12px;color:var(--ink2);font-size:15px;max-width:42ch}
+.trip-tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 16px;font-family:var(--disp);font-weight:500;font-size:13.5px;color:var(--trip-c,var(--accent))}
+.trip-foot{margin-top:28px;display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--line)}
+.trip-status{font-family:var(--disp);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.trip-status.done{background:rgba(110,122,67,.14);color:var(--olive)}
+.trip-status.plan{background:rgba(194,131,43,.16);color:var(--amber)}
+.trip-status.arch{background:rgba(28,27,23,.07);color:var(--ink2)}
+.trip-go{font-family:var(--disp);font-size:14px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:8px;transition:gap .25s var(--ease)}
+.trip:hover .trip-go{gap:14px;color:var(--trip-c,var(--accent))}
 
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media(max-width:900px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.stat-grid{grid-template-columns:1fr}}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .25s var(--ease),border-color .25s var(--ease)}
-.stat:hover{transform:translateY(-4px);border-color:var(--line-2)}
-.stat .num{font-family:var(--disp);font-size:46px;font-weight:700;letter-spacing:-0.03em;line-height:1}
-.stat .num small{font-size:18px;font-weight:600;color:var(--muted)}
-.stat .lab{margin-top:14px;color:var(--ink2);font-size:14.5px}
-.stat:nth-child(1) .num{color:var(--accent)}
-.stat:nth-child(2) .num{color:var(--slate)}
-.stat:nth-child(3) .num{color:var(--ink)}
-.stat:nth-child(4) .num{color:var(--olive)}
+/* 입장 퀴즈 게이트 */
+#gate{position:fixed;inset:0;z-index:5000;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;transition:opacity .6s var(--ease),visibility .6s var(--ease)}
+#gate.pass{opacity:0;visibility:hidden}
+.gate-card{max-width:460px;width:100%}
+.gate-eyebrow{font-family:var(--disp);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);margin-bottom:22px}
+.gate-eyebrow::before,.gate-eyebrow::after{content:"—";margin:0 10px;color:var(--line-2)}
+.gate-q{font-family:var(--disp);font-size:clamp(26px,5.4vw,44px);font-weight:800;letter-spacing:-0.02em;line-height:1.15;color:var(--ink)}
+.gate-q .accent{color:var(--accent)}
+.gate-form{display:flex;gap:10px;margin-top:34px}
+.gate-input{flex:1;min-width:0;height:54px;padding:0 18px;border:1px solid var(--line-2);border-radius:4px;font-family:var(--body);font-size:16px;background:var(--surface);color:var(--ink)}
+.gate-input:focus{outline:none;border-color:var(--accent)}
+.gate-btn{height:54px;padding:0 26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:4px;font-family:var(--disp);font-weight:600;font-size:15px;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap}
+.gate-btn:hover{background:transparent;color:var(--ink)}
+.gate-msg{min-height:22px;margin-top:16px;font-size:14px;color:var(--accent);font-weight:500}
+.gate-shake{animation:gshake .4s}
+@keyframes gshake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-8px)}40%,60%{transform:translateX(8px)}}
+@media(max-width:480px){.gate-form{flex-direction:column}.gate-btn{width:100%}}
 
-.day-block{margin-bottom:clamp(44px,7vw,78px)}
-.day-label{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
-.day-label .d-no{font-family:var(--disp);font-weight:700;font-size:clamp(22px,3.4vw,34px);letter-spacing:-0.02em;color:var(--ink)}
-.day-label .d-date{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.tl{position:relative}
-.tl-row{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--line)}
-.tl-row:last-child{border-bottom:1px solid var(--line)}
-.tl-time{padding:28px 24px 28px 0;font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.01em;color:var(--ink);position:relative}
-.tl-time::before{content:"";position:absolute;right:-5px;top:33px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
-.tl-body{padding:26px 0 26px 34px;border-left:1px solid var(--line)}
-.tl-title{font-size:20px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px;display:flex;align-items:center;gap:10px}
-.tl-title .em{font-size:22px}
-.tl-desc{color:var(--ink2);font-size:15px;line-height:1.75}
-.tl-desc ul{list-style:none;margin-top:8px}
-.tl-desc li{position:relative;padding-left:18px;margin:4px 0}
-.tl-desc li::before{content:"";position:absolute;left:2px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.tl-desc b{color:var(--ink)}
-@media(max-width:640px){.tl-row{grid-template-columns:1fr}.tl-time{padding:22px 0 4px;font-size:17px}.tl-time::before{display:none}.tl-body{border-left:none;padding:0 0 22px}}
-
-.jt-gallery{margin-top:44px}
-.jt-gallery .jt-cap{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--ink2);margin-bottom:16px;text-transform:uppercase}
-.jt-gallery .jt-cap .em{font-size:18px}
-.jt-gallery .jt-cap-note{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0}
-.jt-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.jt-track{display:flex;gap:14px;width:max-content;animation:jt-scroll 60s linear infinite}
-.jt-track.rev{animation-direction:reverse}
-.jt-marquee:hover .jt-track{animation-play-state:paused}
-.jt-track img{height:220px;width:auto;border-radius:var(--radius);object-fit:cover;border:1px solid var(--line);flex:0 0 auto}
-@keyframes jt-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.jt-gallery + .jt-gallery{margin-top:34px}
-@media(max-width:640px){.jt-track img{height:150px}.jt-track{animation-duration:40s}}
-@media(prefers-reduced-motion:reduce){.jt-track{animation:none}.jt-marquee{overflow-x:auto}}
-
-.dining{background:var(--paper-2)}
-.course-nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
-.course-pill{padding:8px 16px;border-radius:999px;border:1px solid var(--line-2);font-family:var(--disp);font-size:12.5px;font-weight:600;color:var(--ink2)}
-.course-pill .d{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
-.recipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:980px){.recipe-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.recipe-grid{grid-template-columns:1fr}}
-.recipe{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .25s var(--ease),border-color .25s var(--ease);position:relative;overflow:hidden}
-.recipe::before{content:"";position:absolute;left:0;top:0;height:100%;width:3px;background:var(--course-c,var(--accent))}
-.recipe:hover{transform:translateY(-5px);border-color:var(--line-2)}
-.recipe .rc-course{font-family:var(--disp);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--course-c,var(--accent));margin-bottom:14px}
-.recipe .rc-emoji{font-size:32px;margin-bottom:12px;display:block}
-.recipe h3{font-size:21px;font-weight:700;letter-spacing:-0.01em;margin-bottom:12px}
-.recipe .rc-desc{font-size:14.5px;color:var(--ink2);line-height:1.7;margin-bottom:18px}
-.recipe .rc-ing-t{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
-.recipe .rc-ing{display:flex;flex-wrap:wrap;gap:7px}
-.recipe .rc-ing span{background:rgba(28,27,23,.05);color:var(--ink2);font-size:12.5px;padding:5px 11px;border-radius:var(--radius-sm)}
-
-.prep-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media(max-width:900px){.prep-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.prep-grid{grid-template-columns:1fr}}
-.prep-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .25s var(--ease),border-color .25s var(--ease)}
-.prep-card:hover{transform:translateY(-4px);border-color:var(--line-2)}
-.prep-card .pc-ic{font-size:28px;margin-bottom:14px}
-.prep-card h4{font-size:17px;font-weight:700;margin-bottom:12px;letter-spacing:-0.01em}
-.prep-card ul{list-style:none}
-.prep-card li{position:relative;padding-left:16px;font-size:14px;color:var(--ink2);margin:7px 0}
-.prep-card li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
-
-.invite{position:relative;max-width:900px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:clamp(36px,6vw,64px) clamp(24px,6vw,64px)}
-.inv-inner{position:relative;z-index:1}
-.inv-eyebrow{text-align:center;color:var(--accent);margin-bottom:12px}
-.inv-title{text-align:center;font-family:var(--disp);font-weight:800;letter-spacing:.12em;font-size:clamp(26px,4.4vw,42px);color:var(--ink);line-height:1.05}
-.inv-deco{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px 0 38px}
-.inv-deco .ln{height:1px;width:clamp(40px,12vw,100px);background:var(--line-2)}
-.inv-deco .dm{color:var(--accent);font-size:12px}
-.inv-row{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:18px 4px;border-bottom:1px solid var(--line);align-items:baseline}
-.inv-row:first-of-type{border-top:1px solid var(--line)}
-.inv-key{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink);font-size:15px;white-space:nowrap}
-.inv-key .di{color:var(--accent);font-size:11px}
-.inv-val{font-size:16px;color:var(--ink2);font-weight:500;line-height:1.6}
-.inv-val strong{color:var(--ink);font-weight:700}
-.inv-val .place-link{color:var(--slate);font-weight:600;border-bottom:1px solid rgba(68,89,106,.4)}
-.inv-notice{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:700px){.inv-notice{grid-template-columns:1fr}}
-.inv-box{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-.inv-box h4{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;margin-bottom:14px}
-.inv-box h4 .bdg{font-family:var(--disp);font-size:11px;font-weight:700;background:var(--accent);color:#fff;padding:4px 11px;border-radius:999px;letter-spacing:.04em}
-.inv-box.dep h4 .bdg{background:var(--slate)}
-.inv-box ul{list-style:none}
-.inv-box li{position:relative;padding-left:18px;font-size:14px;color:var(--ink2);margin:10px 0;line-height:1.65}
-.inv-box li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.inv-box.dep li::before{background:var(--slate)}
-.inv-box li strong{color:var(--ink);font-weight:700}
-@media(max-width:640px){.inv-row{grid-template-columns:1fr;gap:4px;padding:16px 4px}.inv-key{white-space:normal}}
-
-.cta{background:var(--ink);color:var(--paper);text-align:center;padding:clamp(90px,14vw,150px) 0}
-.cta h2{font-family:var(--disp);font-size:clamp(32px,6vw,68px);font-weight:800;letter-spacing:-0.03em;line-height:1}
-.cta p{margin:24px auto 0;max-width:540px;font-size:clamp(15px,2vw,18px);color:rgba(243,240,231,.72)}
-.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;margin-top:38px;background:var(--accent);color:#fff;border-radius:var(--radius);font-family:var(--disp);font-weight:600;font-size:15px;border:1px solid var(--accent);cursor:pointer;transition:all .25s var(--ease)}
-.btn:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
-.btn.light{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.btn.light:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
-footer{background:var(--ink);color:#9c988d;padding:44px 0;font-size:13.5px}
+/* People carousel */
+.people{padding:clamp(34px,6vw,60px) 0 0;opacity:0;animation:fadeUp 1s var(--ease) .7s forwards}
+.people-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.people-head h2{font-family:var(--disp);font-size:clamp(20px,3vw,28px);font-weight:800;letter-spacing:-0.02em}
+.people-head .sub{font-family:var(--disp);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pp-marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.pp-track{display:flex;gap:16px;width:max-content;animation:pp-scroll 80s linear infinite}
+.pp-marquee:hover .pp-track{animation-play-state:paused}
+@keyframes pp-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.pp-item{position:relative;flex:0 0 auto;height:clamp(196px,26vw,288px);border-radius:6px;overflow:hidden;border:1px solid var(--line);background:var(--paper-2)}
+.pp-item img{height:100%;width:auto;max-width:none;display:block;object-fit:cover;transition:transform .5s var(--ease),filter .3s ease}
+.pp-item:hover img{transform:scale(1.05);filter:brightness(1.04)}
+.pp-yr{position:absolute;left:10px;bottom:10px;font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.52);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:4px 11px;border-radius:999px}
+@media(prefers-reduced-motion:reduce){.people{opacity:1;animation:none}.pp-track{animation:none}.pp-marquee{overflow-x:auto}}
+footer{background:var(--ink);color:#9c988d;padding:40px 0;font-size:13.5px;margin-top:auto}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 footer .fbrand{color:var(--paper);font-family:var(--disp);font-weight:700;font-size:15px}
 footer a{color:#9c988d;transition:color .25s var(--ease)}
 footer a:hover{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){.trip{opacity:1;transform:none;transition:none}*{animation:none!important}}
 </style>
 </head>
 <body>
-<a href="#itinerary" class="skip">본문으로 건너뛰기</a>
+<!-- 입장 퀴즈 게이트 -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-eyebrow">늘벗 11기 · 입장 퀴즈</div>
+    <div class="gate-q" id="gateQ"></div>
+    <form class="gate-form" id="gateForm" autocomplete="off">
+      <input class="gate-input" id="gateInput" type="text" placeholder="정답을 입력하세요" aria-label="정답 입력" />
+      <button class="gate-btn" type="submit">입장</button>
+    </form>
+    <div class="gate-msg" id="gateMsg" aria-live="polite"></div>
+  </div>
+</div>
+
+<a href="#trips" class="skip">본문으로 건너뛰기</a>
 
 <header>
   <div class="wrap">
     <a href="#top" class="brand"><span class="dot"></span> 늘벗 11기</a>
-    <nav class="menu" id="menu">
-      <a href="#notice">안내장</a>
-      <a href="#overview">개요</a>
-      <a href="#itinerary">일정</a>
-      <a href="#dining">미식</a>
-      <a href="#prep">준비물</a>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기">☰</button>
+    <span class="brand-sub">Travel Archive</span>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="wrap hero-inner">
-    <span class="kicker">2026.10.17–18 · 금산 가을 모임</span>
+  <div class="wrap">
+    <span class="kicker">늘벗 11기 동기회 · 여행 아카이브</span>
     <h1 class="hero-title">
       <span class="l"><span>늘벗 11기</span></span>
-      <span class="l"><span>금산에서</span></span>
-      <span class="l"><span><em>함께.</em></span></span>
+      <span class="l"><span><em>여행.</em></span></span>
     </h1>
-    <div class="hero-tags">
-      <span>#1박2일</span><span>#금산추부</span><span>#그림같은집</span><span>#가든파티</span><span>#둘레길산행</span><span>#불멍</span><span>#미식</span>
-    </div>
-    <p class="hero-sub">금산 추부 「그림같은 집」 펜션에서 보내는 1박 2일 — 가든 파인다이닝 만찬과 캠프파이어 여흥, 이튿날 만인산 둘레길 산행까지.</p>
-    <figure class="hero-video-card">
-      <div class="hvc-frame">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-label="금산군 추부면 그림같은집 숙소 영상">
-          <source src="Venue.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <figcaption class="hvc-cap">📍 금산군 추부면 · 그림같은 집</figcaption>
-    </figure>
+    <p class="hero-sub">함께 걷고, 먹고, 머문 시간을 기록합니다. 떠날 여행을 골라보세요.</p>
   </div>
-  <div class="scroll-hint">Scroll ↓</div>
 </section>
 
-<!-- NOTICE / 안내장 -->
-<section class="notice" id="notice">
+<!-- PEOPLE CAROUSEL -->
+<section class="people">
   <div class="wrap">
-    <div class="invite reveal">
-      <div class="inv-inner">
-        <div class="inv-eyebrow">Invitation</div>
-        <h2 class="inv-title">안 내 장</h2>
-        <div class="inv-deco"><span class="ln"></span><span class="dm">◈</span><span class="ln r"></span></div>
-
-        <div class="inv-row">
-          <div class="inv-key"><span class="di">◈</span> 제　목</div>
-          <div class="inv-val"><strong>늘벗 11기 동기회 2026년 모임</strong></div>
-        </div>
-        <div class="inv-row">
-          <div class="inv-key"><span class="di">◈</span> 일　시</div>
-          <div class="inv-val"><strong>2026년 10월 17일(토) ~ 18일(일)</strong> · 1박 2일</div>
-        </div>
-        <div class="inv-row">
-          <div class="inv-key"><span class="di">◈</span> 숙　소</div>
-          <div class="inv-val">금산군 추부면 검한길 37, <span class="place-link">그림같은 집 펜션</span></div>
-        </div>
-
-        <div class="inv-notice">
-          <div class="inv-box">
-            <h4><span class="bdg">집결</span> 모이는 안내</h4>
-            <ul>
-              <li>10/17(토) <strong>13:00 이후</strong> 숙소 도착 (자율) · 개인 정비</li>
-              <li>자차 등으로 <strong>숙소(그림같은 집 펜션)로 직접</strong> 이동</li>
-              <li><strong>서울 팀 3인</strong>은 쌍칼 출동</li>
-              <li>점심은 자율 — 드시고 오셔도 되고, 도착 후 <strong>애프터눈 티</strong>(웰컴 드링크·드립 커피·<strong>성심당 빵</strong>)로 준비 예정</li>
-            </ul>
-          </div>
-          <div class="inv-box dep">
-            <h4><span class="bdg">해산</span> 돌아가는 안내</h4>
-            <ul>
-              <li>2일차 <strong>옛터 민속박물관 점심 식사 후</strong>, 18일 <strong>14:00 이후</strong> 귀가 예정</li>
-              <li>귀가 티케팅 시 <strong>14:00 이후</strong>로 참고 바랍니다</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="inv-box coop" style="margin-top:20px">
-          <h4><span class="bdg" style="background:var(--mint);color:#ffffff">협조</span> 함께 챙겨주세요</h4>
-          <ul>
-            <li>술을 즐기는 분들은 <strong>각자 원하는 주류를 지참</strong> 해 주세요 · <strong>BYOB!</strong></li>
-            <li><strong>골프 퍼터·골프공</strong>을 가져올 수 있는 분들의 대여 협조 부탁드립니다</li>
-            <li>2일차 <strong>요가 지도</strong> 가능한 분 협조 부탁 (없으면 진행하지 않습니다)</li>
-          </ul>
-        </div>
-      </div>
+    <div class="people-head">
+      <h2>함께한 얼굴들</h2>
+      <span class="sub">Faces · 2020 → 2026</span>
+    </div>
+  </div>
+  <div class="pp-marquee">
+    <div class="pp-track" id="ppTrack">
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo44.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2024/index.html"><img src="NB11_2024/Photo/photo34.jpg" loading="lazy" alt="2024 부산"><span class="pp-yr">2024</span></a>
+      <a class="pp-item" href="NB11_2026/index.html"><img src="NB11_2026/Photos/photo46.jpg" loading="lazy" alt="2026 금산"><span class="pp-yr">2026</span></a>
+      <a class="pp-item" href="NB11_2022/index.html"><img src="NB11_2022/Photo/photo04.jpg" loading="lazy" alt="2022 곤지암"><span class="pp-yr">2022</span></a>
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo68.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2024/index.html"><img src="NB11_2024/Photo/photo66.jpg" loading="lazy" alt="2024 부산"><span class="pp-yr">2024</span></a>
+      <a class="pp-item" href="NB11_2023_부산소모임/index.html"><img src="NB11_2023_부산소모임/Photo/photo06.jpg" loading="lazy" alt="2023 부산 소모임"><span class="pp-yr">2023</span></a>
+      <a class="pp-item" href="NB11_2026/index.html"><img src="NB11_2026/Photos/photo52.jpg" loading="lazy" alt="2026 금산"><span class="pp-yr">2026</span></a>
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo84.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2024/index.html"><img src="NB11_2024/Photo/photo07.jpg" loading="lazy" alt="2024 부산"><span class="pp-yr">2024</span></a>
+      <a class="pp-item" href="NB11_2022/index.html"><img src="NB11_2022/Photo/photo08.jpg" loading="lazy" alt="2022 곤지암"><span class="pp-yr">2022</span></a>
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo66.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2026/index.html"><img src="NB11_2026/Photos/photo38.jpg" loading="lazy" alt="2026 금산"><span class="pp-yr">2026</span></a>
+      <a class="pp-item" href="NB11_2024/index.html"><img src="NB11_2024/Photo/photo52.jpg" loading="lazy" alt="2024 부산"><span class="pp-yr">2024</span></a>
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo19.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2022/index.html"><img src="NB11_2022/Photo/photo11.jpg" loading="lazy" alt="2022 곤지암"><span class="pp-yr">2022</span></a>
+      <a class="pp-item" href="NB11_2024/index.html"><img src="NB11_2024/Photo/photo53.jpg" loading="lazy" alt="2024 부산"><span class="pp-yr">2024</span></a>
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo69.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2026/index.html"><img src="NB11_2026/Photos/photo61.jpg" loading="lazy" alt="2026 금산"><span class="pp-yr">2026</span></a>
+      <a class="pp-item" href="NB11_2024/index.html"><img src="NB11_2024/Photo/photo21.jpg" loading="lazy" alt="2024 부산"><span class="pp-yr">2024</span></a>
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo20.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2022/index.html"><img src="NB11_2022/Photo/photo12.jpg" loading="lazy" alt="2022 곤지암"><span class="pp-yr">2022</span></a>
+      <a class="pp-item" href="NB11_2024/index.html"><img src="NB11_2024/Photo/photo08.jpg" loading="lazy" alt="2024 부산"><span class="pp-yr">2024</span></a>
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo01.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2026/index.html"><img src="NB11_2026/Photos/photo11.jpg" loading="lazy" alt="2026 금산"><span class="pp-yr">2026</span></a>
+      <a class="pp-item" href="NB11_2024/index.html"><img src="NB11_2024/Photo/photo06.jpg" loading="lazy" alt="2024 부산"><span class="pp-yr">2024</span></a>
+      <a class="pp-item" href="NB11_2020/index.html"><img src="NB11_2020/Photo/photo85.jpg" loading="lazy" alt="2020 제주"><span class="pp-yr">2020</span></a>
+      <a class="pp-item" href="NB11_2022/index.html"><img src="NB11_2022/Photo/photo03.jpg" loading="lazy" alt="2022 곤지암"><span class="pp-yr">2022</span></a>
+      <a class="pp-item" href="NB11_2023_부산소모임/index.html"><img src="NB11_2023_부산소모임/Photo/photo05.jpg" loading="lazy" alt="2023 부산 소모임"><span class="pp-yr">2023</span></a>
     </div>
   </div>
 </section>
 
-<!-- OVERVIEW -->
-<section class="overview reveal" id="overview">
+<!-- TRIPS -->
+<section class="trips" id="trips">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-tag">Overview</div>
-      <h2>한눈에 보는 여행</h2>
-      <p>금산 추부 「그림같은 집」 펜션에서 애프터눈 티로 하루를 열고, 가든 파인다이닝 만찬과 캠프파이어 여흥으로 밤을 보낸 뒤, 이튿날 만인산 둘레길 산행과 옛터 민속박물관 점심으로 마무리하는 1박 2일 일정입니다.</p>
+    <div class="trips-head">
+      <h2>여행 목록</h2>
+      <span class="count">6 Trips</span>
     </div>
-    <div class="stat-grid">
-      <div class="stat"><div class="num">2<small>일</small></div><div class="lab">1박 2일 금산·대전 모임</div></div>
-      <div class="stat"><div class="num">🏡</div><div class="lab">그림같은 집 펜션 (금산 추부)</div></div>
-      <div class="stat"><div class="num">3<small>코스</small></div><div class="lab">가든 파인다이닝 만찬</div></div>
-      <div class="stat"><div class="num">🥾</div><div class="lab">만인산 둘레길 산행</div></div>
-    </div>
-  </div>
-</section>
+    <div class="trip-grid">
 
-<!-- ITINERARY -->
-<section id="itinerary">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-tag">Itinerary</div>
-      <h2>시간 계획</h2>
-      <p>1박 2일, 하루의 흐름을 한눈에 확인하세요.</p>
-    </div>
-
-    <!-- DAY 1 -->
-    <div class="day-block reveal">
-      <div class="day-label"><span class="d-no">Day 1</span><span class="d-date">10/17 토</span></div>
-      <div class="tl">
-        <div class="tl-row"><div class="tl-time">13:00~18:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🎈</span> 숙소 도착 · 자유 활동</div>
-          <div class="tl-desc">숙소 도착(자율) 후 개인 정비. 애프터눈 티로 여유로운 오후를 즐깁니다.
-            <ul>
-            <li><b>애프터눈 티</b> — 웰컴 드링크, 드립 커피, 성심당 빵류(핑거푸드·샌드위치 등)</li>
-            <li><b>산책</b> — 「하늘물빛정원」 산책 (1.5km, 도보 ~20분) · 호수·산책로·사우나·족욕 카페</li>
-            <li><b>골프</b> — 퍼팅 &nbsp;·&nbsp; <b>사격</b> — 과녁 영점사격</li>
-            <li><b>음악 감상</b> — 블루투스, 각종 악기(기타·베이스·키보드 등)</li>
-          </ul></div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">18:00~20:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🍽️</span> 가든 만찬 · 파인다이닝</div>
-          <div class="tl-desc">숙소 건물 앞 잔디밭(테이블·천막·조명)에서 함께 준비하는 파인다이닝 만찬.
-            <ul>
-            <li><b>전채</b> — 양송이 스프, 비프 스튜, 사라다·샐러드</li>
-            <li><b>메인</b> — 각종 튀김, 회, 바비큐, 식사</li>
-            <li><b>후식</b> — 후식 &amp; 다과</li>
-          </ul></div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">20:00~22:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🔥</span> 음주가무</div>
-          <div class="tl-desc">테라스·잔디밭·실내에서 캠프파이어(가능할 경우)와 함께. 술 &amp; 안주(꼬치구이·넛트류·탕류 등), 음악, 그리고 많은 이야기.</div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">22:00~</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🌙</span> 여흥</div>
-          <div class="tl-desc">늦은 음주와 따뜻한 커피 &amp; 차, 남은 음식. 밤새워 불멍(가능하다면)으로 첫날 밤을 마무리합니다.</div>
-        </div></div>
-      </div>
-
-      <div class="jt-gallery">
-        <div class="jt-cap"><span class="em">🌿</span> 하늘물빛정원 산책 <span class="jt-cap-note">(1일차 · 호수·산책로·식물원·족욕 카페)</span></div>
-        <div class="jt-marquee">
-          <div class="jt-track">
-            <img src="Data/하늘물빛정원/haneul01.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul02.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul03.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul04.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul05.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul06.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul07.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul08.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul09.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul10.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul11.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul12.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul13.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul14.webp" alt="하늘물빛정원" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul15.webp" alt="하늘물빛정원" loading="lazy" />
-            <!-- 무한 루프용 복제본 -->
-            <img src="Data/하늘물빛정원/haneul01.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul02.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul03.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul04.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul05.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul06.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul07.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul08.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul09.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul10.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul11.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul12.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul13.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul14.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/하늘물빛정원/haneul15.webp" alt="" aria-hidden="true" loading="lazy" />
+      <!-- 2020 제주 -->
+      <a class="trip" style="--trip-c:#6E7A43" href="NB11_2020/index.html">
+        <div>
+          <div class="trip-top">
+            <div class="trip-year">2020</div>
+            <div class="trip-flag">🌴</div>
           </div>
+          <div class="trip-place">제주</div>
+          <p class="trip-desc">월정리해변·지미오름·일출봉·비자림·사려니숲까지. 늘벗 11기 제주 여행의 순간들을 사진으로 만나요.</p>
+          <div class="trip-tags"><span>#제주</span><span>#일출봉</span><span>#비자림</span><span>#흑돼지</span></div>
         </div>
-      </div>
-    </div>
+        <div class="trip-foot">
+          <span class="trip-status arch">📷 130장</span>
+          <span class="trip-go">갤러리 보기 →</span>
+        </div>
+      </a>
 
-    <!-- DAY 2 -->
-    <div class="day-block reveal">
-      <div class="day-label"><span class="d-no">Day 2</span><span class="d-date">10/18 일</span></div>
-      <div class="tl">
-        <div class="tl-row"><div class="tl-time">08:00~10:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🍲</span> 아침 식사 · 오전 활동 · 퇴실</div>
-          <div class="tl-desc">기상하는 대로 아침 식사(북어해장국·밥·밑반찬). 산책·요가·모닝 커피 등으로 여유로운 아침을 보낸 뒤 퇴실을 준비합니다.</div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">10:00~12:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🥾</span> 만인산 자연휴양림 산행</div>
-          <div class="tl-desc">퇴실 후 만인산 자연휴양림으로 이동(숙소에서 차량 ~20분). 「왕에게로 가는 길」 둘레길 산행 (2.6km, ~1시간).
-            <ul>
-            <li>「제1주차장」 주차 (주차 공간이 협소할 수 있음)</li>
-            <li>「무장애 나눔길」 입구로 입장 → 데크길</li>
-            <li>이성계 태조태실, 봉이호떡</li>
-          </ul></div>
-        </div></div>
-        <div class="tl-row"><div class="tl-time">12:00~14:00</div><div class="tl-body">
-          <div class="tl-title"><span class="em">🍽️</span> 옛터 민속박물관 점심 · 귀가</div>
-          <div class="tl-desc">만인산 주차장에서 차량 ~5분 거리의 「옛터 민속박물관」으로 이동. 한식당 <strong>「얼쑤」</strong>에서 점심 식사 후 자율 귀가합니다.</div>
-        </div></div>
-      </div>
-    </div>
-
-    <div class="jt-gallery">
-      <div class="jt-cap"><span class="em">🥾</span> 만인산 자연휴양림 · 「왕에게로 가는 길」 둘레길 <span class="jt-cap-note">(2일차 산행 예정지)</span></div>
-        <div class="jt-marquee">
-          <div class="jt-track">
-            <img src="Data/만인산/maninsan01.jpg" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan02.jpg" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan03.jpg" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan04.jpg" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan05.jpg" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan06.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan07.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan08.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan09.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan10.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan11.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan12.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan13.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan14.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan15.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan16.png" alt="만인산 풍경" loading="lazy" />
-            <img src="Data/만인산/maninsan17.png" alt="만인산 풍경" loading="lazy" />
-            <!-- 무한 루프용 복제본 -->
-            <img src="Data/만인산/maninsan01.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan02.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan03.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan04.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan05.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan06.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan07.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan08.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan09.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan10.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan11.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan12.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan13.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan14.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan15.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan16.png" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/만인산/maninsan17.png" alt="" aria-hidden="true" loading="lazy" />
+      <!-- 2022 곤지암 -->
+      <a class="trip" style="--trip-c:#C2832B" href="NB11_2022/index.html">
+        <div>
+          <div class="trip-top">
+            <div class="trip-year">2022</div>
+            <div class="trip-flag">⛰️</div>
           </div>
+          <div class="trip-place">곤지암</div>
+          <p class="trip-desc">자연 속 휴양과 함께한 곤지암 모임. 여유로운 하루를 사진으로 기록했습니다.</p>
+          <div class="trip-tags"><span>#곤지암</span><span>#휴양</span><span>#자연</span></div>
         </div>
-      </div>
-    <div class="jt-gallery">
-      <div class="jt-cap"><span class="em">🍽️</span> 일요일 식당 – 옛터 <span class="jt-cap-note">(옛터 민속박물관 · 한식당 「얼쑤」)</span></div>
-        <div class="jt-marquee">
-          <div class="jt-track rev">
-            <img src="Data/옛터/yetteo01.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo02.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo03.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo04.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo05.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo06.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo07.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo08.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo09.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo10.webp" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo11.jpg" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo12.jpg" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo13.jpg" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo14.jpg" alt="옛터 민속박물관" loading="lazy" />
-            <img src="Data/옛터/yetteo15.jpg" alt="옛터 민속박물관" loading="lazy" />
-            <!-- 무한 루프용 복제본 -->
-            <img src="Data/옛터/yetteo01.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo02.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo03.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo04.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo05.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo06.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo07.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo08.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo09.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo10.webp" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo11.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo12.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo13.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo14.jpg" alt="" aria-hidden="true" loading="lazy" />
-            <img src="Data/옛터/yetteo15.jpg" alt="" aria-hidden="true" loading="lazy" />
+        <div class="trip-foot">
+          <span class="trip-status arch">📷 15장</span>
+          <span class="trip-go">갤러리 보기 →</span>
+        </div>
+      </a>
+
+      <!-- 2023 부산 소모임 (LCT) -->
+      <a class="trip" style="--trip-c:#7A5C7B" href="NB11_2023_부산소모임/index.html">
+        <div>
+          <div class="trip-top">
+            <div class="trip-year">2023</div>
+            <div class="trip-flag">🌆</div>
           </div>
+          <div class="trip-place">부산 <span class="hanja">LCT</span></div>
+          <p class="trip-desc">부산 본진 멤버들이 모인 LCT 소모임. 광안리 밤바다를 배경으로 한 작은 만남.</p>
+          <div class="trip-tags"><span>#부산</span><span>#LCT</span><span>#본진소모임</span></div>
         </div>
-      </div>
-  </div>
-</section>
+        <div class="trip-foot">
+          <span class="trip-status arch">📷 6장</span>
+          <span class="trip-go">갤러리 보기 →</span>
+        </div>
+      </a>
 
-<!-- DINING -->
-<section class="dining" id="dining">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-tag">Fine Dining</div>
-      <h2>정성으로 차리는 미식</h2>
-      <p>첫날 저녁, 늘벗 11기가 직접 준비하는 가든 파인다이닝 코스. 전채부터 메인, 후식, 그리고 캠프파이어 안주까지 — 각 요리를 소개합니다.</p>
+      <!-- 2024 부산 -->
+      <a class="trip" style="--trip-c:#3E7C7B" href="NB11_2024/index.html">
+        <div>
+          <div class="trip-top">
+            <div class="trip-year">2024</div>
+            <div class="trip-flag">🌊</div>
+          </div>
+          <div class="trip-place">부산</div>
+          <p class="trip-desc">바다의 도시에서 함께 걷고 먹고 웃은 부산 여행. 사진과 영상으로 담았습니다.</p>
+          <div class="trip-tags"><span>#부산</span><span>#바다</span><span>#가을여행</span></div>
+        </div>
+        <div class="trip-foot">
+          <span class="trip-status arch">📷 71점</span>
+          <span class="trip-go">갤러리 보기 →</span>
+        </div>
+      </a>
+
+      <!-- 2026 금산 -->
+      <a class="trip" style="--trip-c:#E0502A" href="NB11_2026/index.html">
+        <div>
+          <div class="trip-top">
+            <div class="trip-year">2026</div>
+            <div class="trip-flag">🍂</div>
+          </div>
+          <div class="trip-place">금산 · 대전</div>
+          <p class="trip-desc">추부 「그림같은 집」 펜션에서 보내는 1박 2일 — 가든 파인다이닝 만찬과 캠프파이어, 만인산 둘레길 산행.</p>
+          <div class="trip-tags"><span>#1박2일</span><span>#가든파티</span><span>#불멍</span><span>#둘레길</span></div>
+        </div>
+        <div class="trip-foot">
+          <span class="trip-status arch">📷 68장</span>
+          <span class="trip-go">갤러리 보기 →</span>
+        </div>
+      </a>
+
+      <!-- 2028 칭다오 -->
+      <a class="trip" style="--trip-c:#44596A" href="NB11_2028/index.html">
+        <div>
+          <div class="trip-top">
+            <div class="trip-year">2028</div>
+            <div class="trip-flag">🍺</div>
+          </div>
+          <div class="trip-place">칭다오<span class="hanja">靑島</span></div>
+          <p class="trip-desc">중국 산둥반도의 해안 도시, 칭다오로 떠나는 다음 여행. 맥주와 해변, 독일풍 거리를 함께 걷는 여정을 준비합니다.</p>
+          <div class="trip-tags"><span>#해외여행</span><span>#칭다오맥주</span><span>#해안도시</span></div>
+        </div>
+        <div class="trip-foot">
+          <span class="trip-status plan">계획 중</span>
+          <span class="trip-go">여행 보기 →</span>
+        </div>
+      </a>
+
     </div>
-
-    <div class="course-nav reveal">
-      <span class="course-pill"><span class="d" style="background:#6E7A43"></span>전채 Appetizer</span>
-      <span class="course-pill"><span class="d" style="background:#E0502A"></span>메인 Main</span>
-      <span class="course-pill"><span class="d" style="background:#C2832B"></span>후식 Dessert</span>
-      <span class="course-pill"><span class="d" style="background:#44596A"></span>안주 Night</span>
-    </div>
-
-    <div class="recipe-grid">
-      <!-- 전채 -->
-      <article class="recipe reveal" style="--course-c:#6E7A43">
-        <div class="rc-course">전채 · Appetizer</div>
-        <span class="rc-emoji">🥗</span>
-        <h3>가든 샐러드</h3>
-        <p class="rc-desc">양상추를 넉넉히 깔고 오이·당근·피망·메추리알을 올린 상큼한 시작. 유자폰즈와 망고소스를 곁들여 두 가지 맛으로 즐깁니다.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>양상추</span><span>오이·당근·피망</span><span>메추리알</span><span>유자폰즈</span><span>망고소스</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#6E7A43">
-        <div class="rc-course">전채 · Appetizer</div>
-        <span class="rc-emoji">🍄</span>
-        <h3>양송이 스프</h3>
-        <p class="rc-desc">양송이와 양파를 버터에 볶아 우유·생크림으로 부드럽게 끓인 크림 스프. 따뜻하게 코스의 첫 문을 여는 웰컴 보울입니다.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>양송이</span><span>양파</span><span>버터</span><span>우유·생크림</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#6E7A43">
-        <div class="rc-course">전채 · Appetizer</div>
-        <span class="rc-emoji">🍲</span>
-        <h3>비프 스튜</h3>
-        <p class="rc-desc">부채살을 토마토소스에 뭉근히 끓여낸 진한 스튜. 당근·감자·토마토가 어우러져 든든하게 코스의 문을 엽니다. 미리 가열해 두면 완성.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>부채살</span><span>토마토소스</span><span>당근·감자·토마토</span></div>
-      </article>
-
-      <!-- 메인 -->
-      <article class="recipe reveal" style="--course-c:#E0502A">
-        <div class="rc-course">메인 · Main</div>
-        <span class="rc-emoji">🍤</span>
-        <h3>모듬 튀김</h3>
-        <p class="rc-desc">깐새우(왕새우)와 오징어, 감자·양파·파·당근·가지 등 제철 야채를 바삭하게 튀겨냅니다. 갓 튀겨 뜨거울 때가 가장 맛있어요.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>깐새우·왕새우</span><span>오징어</span><span>모듬 야채</span><span>가지</span><span>식용유</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#E0502A">
-        <div class="rc-course">메인 · Main</div>
-        <span class="rc-emoji">🐟</span>
-        <h3>참치회</h3>
-        <p class="rc-desc">냉동참치 대뱃살 부위를 자연 해동해 결대로 썰어냅니다. 생와사비와 쯔유를 곁들이면 고급 횟집 부럽지 않은 한 접시.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>냉동참치 대뱃살</span><span>생와사비</span><span>쯔유</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#E0502A">
-        <div class="rc-course">메인 · Main</div>
-        <span class="rc-emoji">🍖</span>
-        <h3>등갈비 바비큐</h3>
-        <p class="rc-desc">항아리·참나무 숯에 등갈비를 은은하게 구워 소스를 발라내는 시그니처. 소금·후추 밑간 후 숯불의 향을 입힙니다.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>등갈비</span><span>바비큐 소스</span><span>참나무 숯</span><span>소금·후추</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#E0502A">
-        <div class="rc-course">메인 · Main</div>
-        <span class="rc-emoji">🥩</span>
-        <h3>풀드 포크</h3>
-        <p class="rc-desc">목살을 머스타드·월계수잎·로즈마리로 향을 내 오래 익힌 뒤 결결이 찢어냅니다. 노브랜드 바비큐소스로 마무리해 부드럽게.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>목살</span><span>머스타드</span><span>월계수잎·로즈마리</span><span>바비큐소스</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#E0502A">
-        <div class="rc-course">메인 · Main</div>
-        <span class="rc-emoji">🍚</span>
-        <h3>밥 · 두부 두루치기 · 밑반찬</h3>
-        <p class="rc-desc">갓 지은 쌀밥에 얼큰한 두부 두루치기, 그리고 정갈한 밑반찬으로 코스의 균형을 맞춥니다. 든든한 한 상.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>쌀</span><span>두부</span><span>밑반찬</span></div>
-      </article>
-
-      <!-- 후식 -->
-      <article class="recipe reveal" style="--course-c:#C2832B">
-        <div class="rc-course">후식 · Dessert</div>
-        <span class="rc-emoji">🍰</span>
-        <h3>성심당 시루 &amp; 커피</h3>
-        <p class="rc-desc">대전의 자랑 성심당 시루 케이크와 제철 과일. 커피 머신 혹은 드립 커피로 향긋하게 저녁 코스를 마무리합니다.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>성심당 시루</span><span>알밤시루</span><span>과일</span><span>커피</span></div>
-      </article>
-
-      <!-- 안주 -->
-      <article class="recipe reveal" style="--course-c:#44596A">
-        <div class="rc-course">안주 · 탕류</div>
-        <span class="rc-emoji">🥘</span>
-        <h3>참치김치찌개</h3>
-        <p class="rc-desc">참치캔과 잘 익은 김치를 넣고 치킨스톡으로 감칠맛을 더한 얼큰한 탕류 안주. 음주가무의 밤을 든든하게 채워줍니다.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>참치캔</span><span>김치</span><span>치킨스톡</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#44596A">
-        <div class="rc-course">캠프파이어 · 안주</div>
-        <span class="rc-emoji">🍢</span>
-        <h3>꼬치구이</h3>
-        <p class="rc-desc">닭꼬치·은행꼬치 등 각종 꼬치를 숯불에 노릇하게 굽는 캠프파이어 안주. 모듬 넛트류와 함께 모닥불 곁 이야기를 더합니다.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>닭꼬치·은행꼬치</span><span>꼬치류</span><span>모듬 넛트류</span></div>
-      </article>
-
-      <article class="recipe reveal" style="--course-c:#C2832B">
-        <div class="rc-course">둘째날 · Morning</div>
-        <span class="rc-emoji">🍚</span>
-        <h3>북어 해장국 아침상</h3>
-        <p class="rc-desc">황태채를 참기름에 달달 볶아 무·콩나물·계란을 더해 시원하고 고소하게 끓인 해장국. 밥·밑반찬과 함께 둘째날 아침을 든든히 엽니다.</p>
-        <div class="rc-ing-t">Ingredients</div>
-        <div class="rc-ing"><span>황태채</span><span>무·콩나물</span><span>계란</span><span>참기름</span><span>밥·밑반찬</span></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PREP -->
-<section class="prep" id="prep">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-tag">Checklist</div>
-      <h2>준비물</h2>
-      <p>먹거리부터 장비, 실내외 장식까지 — 완벽한 하루를 위한 준비 목록입니다.</p>
-    </div>
-    <div class="prep-grid">
-      <div class="prep-card reveal"><div class="pc-ic">🍽️</div><h4>먹거리 · 식자재</h4><ul>
-        <li>등갈비 · 삼겹살 · 목살</li><li>냉동참치 · 깐새우 · 오징어</li><li>부채살 · 두부 · 양송이 · 황태채</li><li>쌀 5kg · 밑반찬 · 소스류</li>
-      </ul></div>
-      <div class="prep-card reveal"><div class="pc-ic">🔥</div><h4>바비큐 · 장비</h4><ul>
-        <li>참나무 숯 10kg · 항아리</li><li>식용유 · 소금 · 후추</li><li>커피 머신 / 드립 도구</li>
-      </ul></div>
-      <div class="prep-card reveal"><div class="pc-ic">🎈</div><h4>실내외 장식</h4><ul>
-        <li>호일풍선 (1~2m) · 라이트볼</li><li>꿈돌이·이글스·성심이 캐릭터</li><li>환영 플래카드 · 라인조명</li><li>캐노피 / 타프 (가든파티)</li>
-      </ul></div>
-      <div class="prep-card reveal"><div class="pc-ic">🍪</div><h4>간식 · 음료</h4><ul>
-        <li>성심당 빵류 · 쿠키 · 마들렌</li><li>모듬 넛트 · 과자류</li><li>물 · 쥬스 · 여명808</li><li>드립 커피 · 전통차 · 다과 (애프터눈 티·여흥)</li>
-      </ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="wrap reveal">
-    <h2>늘벗 11기,<br>금산에서 만나요</h2>
-    <p>함께라서 더 특별한 1박 2일. 준비된 자료로 즐거운 여행을 함께 완성해요.</p>
-    <a href="#top" class="btn light">↑ 처음으로</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="fbrand">늘벗 11기 · 2026 금산·대전 가을 모임</div>
+    <div class="fbrand">늘벗 11기 · 여행 아카이브</div>
     <div>대표 이선우 &nbsp;·&nbsp; <a href="https://github.com/dknife/NB11">GitHub 저장소</a></div>
   </div>
 </footer>
 
 <script>
-// mobile menu
-const menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('menu');
-menuBtn.addEventListener('click',()=>menu.classList.toggle('open'));
-menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-
-// reveal on scroll
 const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*90);io.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll('.trip').forEach(el=>io.observe(el));
 
-// header bg on scroll
-addEventListener('scroll',()=>{
-  document.querySelector('header').style.background=scrollY>40?'rgba(243,240,231,0.96)':'rgba(243,240,231,0.75)';
-});
+// 인물 카루셀 무한 루프용 복제
+const ppt=document.getElementById('ppTrack');
+if(ppt){ ppt.setAttribute('aria-hidden','false'); ppt.innerHTML+=ppt.innerHTML; }
+
+// 입장 퀴즈 게이트
+(function(){
+  var QA=[{q:'상석이의 별명은?',a:'라라'},{q:'영민이의 별명은?',a:'쌍칼'}];
+  var pick=QA[Math.floor(Math.random()*QA.length)];
+  var gate=document.getElementById('gate'); if(!gate) return;
+  var passed=false; try{ passed=sessionStorage.getItem('nb11_gate')==='1'; }catch(e){}
+  if(passed){ gate.classList.add('pass'); setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); },50); return; }
+  document.getElementById('gateQ').innerHTML=pick.q.replace('별명',"<span class='accent'>별명</span>");
+  document.documentElement.style.overflow='hidden'; document.body.style.overflow='hidden';
+  var form=document.getElementById('gateForm'), inp=document.getElementById('gateInput'), msg=document.getElementById('gateMsg');
+  setTimeout(function(){ inp.focus(); },350);
+  function norm(s){ return (s||'').replace(/\s+/g,'').trim(); }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(norm(inp.value)===norm(pick.a)){
+      try{ sessionStorage.setItem('nb11_gate','1'); }catch(e){}
+      gate.classList.add('pass');
+      document.documentElement.style.overflow=''; document.body.style.overflow='';
+      setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); },700);
+    } else {
+      msg.textContent='정답이 아니에요. 다시 시도해 주세요.';
+      var card=gate.querySelector('.gate-card');
+      card.classList.remove('gate-shake'); void card.offsetWidth; card.classList.add('gate-shake');
+      inp.select();
+    }
+  });
+})();
 </script>
 </body>
 </html>

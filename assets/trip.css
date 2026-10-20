@@ -1,0 +1,51 @@
+/* 늘벗 11기 여행 — 아카이브(갤러리) 페이지 공용 스타일 */
+:root{
+  --paper:#F3F0E7; --paper-2:#EAE6DA; --surface:#FBF9F3; --white:#FFFFFF;
+  --ink:#1C1B17; --ink2:#45413A; --muted:#8B8676;
+  --line:rgba(28,27,23,.14); --line-2:rgba(28,27,23,.30);
+  --accent:#E0502A;
+  --radius:4px; --maxw:1200px; --pad:clamp(24px,6vw,72px);
+  --disp:"Space Grotesk","Noto Sans KR",sans-serif;
+  --body:"Noto Sans KR","Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);width:100%}
+.kicker,.sec-tag{font-family:var(--disp);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 20px;z-index:1000}
+.skip:focus{left:0}
+
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;display:flex;align-items:center;background:rgba(243,240,231,0.78);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:17px}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+.back{font-family:var(--disp);font-size:13px;font-weight:500;color:var(--ink2);transition:color .25s var(--ease)}
+.back:hover{color:var(--accent)}
+
+.hero{position:relative;padding:150px 0 60px;text-align:center}
+.hero .kicker{display:inline-block;margin-bottom:22px;opacity:0;animation:fadeUp .9s var(--ease) .1s forwards}
+.hero .kicker::before,.hero .kicker::after{content:"—";margin:0 10px;color:var(--line-2)}
+.hero-title{font-family:var(--disp);font-weight:800;letter-spacing:-0.035em;line-height:.92;font-size:clamp(54px,12vw,150px);overflow:hidden}
+.hero-title span{display:inline-block;transform:translateY(105%);animation:reveal 1.05s var(--ease) .15s forwards}
+.hero-title .hanja{font-family:var(--body);font-weight:500;color:var(--muted);font-size:.4em;letter-spacing:0;margin-left:14px}
+@keyframes reveal{to{transform:translateY(0)}}
+.hero-sub{margin:26px auto 0;max-width:600px;font-size:clamp(15px,1.9vw,18px);color:var(--ink2);opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
+.hero-tags{margin-top:24px;display:flex;flex-wrap:wrap;justify-content:center;gap:9px 20px;font-family:var(--disp);font-weight:500;font-size:clamp(13px,1.6vw,16px);color:var(--accent);opacity:0;animation:fadeUp .9s var(--ease) .62s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.gallery-sec{flex:1;padding:clamp(40px,7vw,70px) 0 clamp(80px,12vw,120px);border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head .sec-tag{margin-bottom:0}
+.sec-head h2{font-family:var(--disp);font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-0.025em}
+.sec-head .meta{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+footer{background:var(--ink);color:#9c988d;padding:40px 0;font-size:13.5px;margin-top:auto}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .fbrand{color:var(--paper);font-family:var(--disp);font-weight:700;font-size:15px}
+footer a{color:#9c988d;transition:color .25s var(--ease)}
+footer a:hover{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.hero-title span{transform:none}}
