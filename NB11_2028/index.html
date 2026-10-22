@@ -107,6 +107,10 @@ section:not(.hero){border-top:1px solid var(--line)}
 .cta p{margin:24px auto 0;max-width:540px;font-size:clamp(15px,2vw,18px);color:rgba(243,240,231,.72)}
 .btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;margin-top:38px;background:var(--paper);color:var(--ink);border-radius:var(--radius);font-family:var(--disp);font-weight:600;font-size:15px;border:1px solid var(--paper);cursor:pointer;transition:all .25s var(--ease)}
 .btn:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
+.cta-btns{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-btns .btn{margin-top:0}
+.btn-ghost{background:transparent;color:var(--paper);border-color:rgba(243,240,231,.4)}
+.btn-ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
 footer{background:var(--ink);color:#9c988d;padding:44px 0;font-size:13.5px}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 footer .fbrand{color:var(--paper);font-family:var(--disp);font-weight:700;font-size:15px}
@@ -204,8 +208,11 @@ footer a:hover{color:var(--accent)}
 <section class="cta">
   <div class="wrap reveal">
     <h2>2028,<br>칭다오에서 만나요</h2>
-    <p>아직 계획 단계입니다. 아이디어와 의견을 모아 함께 여행을 완성해요.</p>
-    <a href="../index.html" class="btn">← 여행 목록으로</a>
+    <p>아직 계획 단계입니다. 아이디어와 의견을 모아 함께 여행을 완성해요. 떠나기 전, 중국어도 함께 익혀 보아요.</p>
+    <div class="cta-btns">
+      <a href="https://dknife.github.io/LearnLangs/#/zh/" class="btn" target="_blank" rel="noopener">🇨🇳 중국어를 배워 보자 →</a>
+      <a href="../index.html" class="btn btn-ghost">← 여행 목록으로</a>
+    </div>
   </div>
 </section>
 
