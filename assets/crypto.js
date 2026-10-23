@@ -20,7 +20,7 @@
   }
 
   function deriveKey(pass) {
-    return crypto.subtle.importKey('raw', new TextEncoder().encode(pass), { name: 'PBKDF2' }, false, ['deriveKey'])
+    return crypto.subtle.importKey('raw', new TextEncoder().encode((pass || '').normalize('NFC')), { name: 'PBKDF2' }, false, ['deriveKey'])
       .then(function (base) {
         return crypto.subtle.deriveKey(
           { name: 'PBKDF2', salt: hexBytes(SALT_HEX), iterations: ITER, hash: 'SHA-256' },

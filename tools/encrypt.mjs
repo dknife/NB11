@@ -23,7 +23,7 @@ const pass = process.env.NB11_PASSPHRASE;
 if (!pass) { console.error('환경변수 NB11_PASSPHRASE 가 필요합니다.'); process.exit(1); }
 const verifyOnly = process.argv.includes('--verify-only');
 
-const key = pbkdf2Sync(Buffer.from(pass, 'utf8'), SALT, ITER, 32, 'sha256');
+const key = pbkdf2Sync(Buffer.from(pass.normalize('NFC'), 'utf8'), SALT, ITER, 32, 'sha256');
 
 function encrypt(buf) {
   const iv = randomBytes(12);
