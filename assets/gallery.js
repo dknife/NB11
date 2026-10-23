@@ -1,6 +1,7 @@
-/* 늘벗 11기 — 공용 사진 갤러리 + 라이트박스
+/* 늘벗 11기 — 공용 사진 갤러리 + 라이트박스 (암호화 자산)
    사용법: window.TRIP = { folder:'Photo', count:15, videos:{55:'mp4'} } 설정 후,
-   <div id="gallery" class="nb-gallery"></div> 컨테이너와 함께 이 스크립트를 로드. */
+   assets/crypto.js → 이 스크립트 순으로 로드. 원본은 `photoNN.<ext>.enc` 로 암호화돼 있고,
+   NBCrypto.decryptURL 로 복호화한 blob URL을 화면에 사용한다. */
 (function () {
   var cfg = window.TRIP || {};
   var folder = (cfg.folder || 'Photo').replace(/\/$/, '');
@@ -12,7 +13,8 @@
   var css = ''
     + '.nb-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px}'
     + '.nb-cell{position:relative;aspect-ratio:1/1;padding:0;border:1px solid rgba(28,27,23,.14);border-radius:4px;overflow:hidden;cursor:pointer;background:#EAE6DA;display:block}'
-    + '.nb-cell img,.nb-cell video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,1,.36,1),filter .3s ease}'
+    + '.nb-cell img,.nb-cell video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,1,.36,1),filter .3s ease,opacity .4s ease}'
+    + '.nb-cell img:not([src]),.nb-cell img[src=""]{opacity:0}'
     + '.nb-cell:hover img,.nb-cell:hover video{transform:scale(1.05);filter:brightness(1.04)}'
     + '.nb-cell:focus-visible{outline:2px solid var(--accent,#E0502A);outline-offset:2px}'
     + '.nb-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22);color:#fff;font-size:26px;pointer-events:none}'
@@ -35,35 +37,55 @@
   style.textContent = css;
   document.head.appendChild(style);
 
-  /* --- 아이템 목록 --- */
+  /* --- 아이템 목록 (암호화 경로) --- */
   var items = [];
   for (var i = 1; i <= count; i++) {
     var ext = videos[i] || 'jpg';
-    items.push({ src: folder + '/photo' + pad(i) + '.' + ext, video: !!videos[i], n: i });
+    items.push({ enc: folder + '/photo' + pad(i) + '.' + ext + '.enc', video: !!videos[i], n: i });
   }
 
   var grid = document.getElementById('gallery');
-  if (!grid) return;
+  if (!grid || !window.NBCrypto) return;
+
+  // index → 복호화된 blob URL(Promise) 캐시 (썸네일·라이트박스 공용, 한 번만 복호화)
+  var urlCache = {};
+  function getURL(idx) {
+    if (!urlCache[idx]) urlCache[idx] = NBCrypto.decryptURL(items[idx].enc);
+    return urlCache[idx];
+  }
 
   var io = ('IntersectionObserver' in window)
     ? new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.05 })
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var idx = +e.target.getAttribute('data-idx');
+          fillCell(e.target, idx);
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.05, rootMargin: '200px' })
     : null;
+
+  function fillCell(cell, idx) {
+    var el = cell.querySelector('img,video');
+    if (!el || el.getAttribute('src')) return;
+    getURL(idx).then(function (url) { el.src = url; }).catch(function () {});
+  }
 
   items.forEach(function (it, idx) {
     var cell = document.createElement('button');
     cell.className = 'nb-cell';
     cell.type = 'button';
+    cell.setAttribute('data-idx', idx);
     cell.setAttribute('aria-label', '사진 ' + it.n + ' 크게 보기');
     if (it.video) {
-      cell.innerHTML = '<video src="' + it.src + '" muted playsinline preload="metadata"></video><span class="nb-play"><span>&#9654;</span></span>';
+      cell.innerHTML = '<video muted playsinline preload="metadata"></video><span class="nb-play"><span>&#9654;</span></span>';
     } else {
-      cell.innerHTML = '<img src="' + it.src + '" loading="lazy" alt="늘벗 11기 사진 ' + it.n + '">';
+      cell.innerHTML = '<img alt="늘벗 11기 사진 ' + it.n + '">';
     }
     cell.addEventListener('click', function () { open(idx); });
     grid.appendChild(cell);
-    if (io) io.observe(cell); else cell.classList.add('in');
+    if (io) io.observe(cell); else { fillCell(cell, idx); cell.classList.add('in'); }
   });
 
   /* --- 라이트박스 --- */
@@ -80,12 +102,17 @@
   var cur = 0;
 
   function render() {
-    var it = items[cur];
-    stage.innerHTML = it.video
-      ? '<video src="' + it.src + '" controls autoplay playsinline></video>'
-      : '<img src="' + it.src + '" alt="늘벗 11기 사진 ' + it.n + '">';
+    var it = items[cur], seq = ++renderSeq;
     counter.textContent = (cur + 1) + ' / ' + items.length;
+    stage.innerHTML = '';
+    getURL(cur).then(function (url) {
+      if (seq !== renderSeq) return;   // 빠르게 넘기면 이전 렌더 무시
+      stage.innerHTML = it.video
+        ? '<video src="' + url + '" controls autoplay playsinline></video>'
+        : '<img src="' + url + '" alt="늘벗 11기 사진 ' + it.n + '">';
+    }).catch(function () {});
   }
+  var renderSeq = 0;
   function open(i) { cur = i; render(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
   function close() { lb.classList.remove('open'); stage.innerHTML = ''; document.body.style.overflow = ''; }
   function go(d) { cur = (cur + d + items.length) % items.length; render(); }

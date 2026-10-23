@@ -40,7 +40,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between}
 
 /* HERO */
 .hero{position:relative;padding:clamp(180px,27vh,280px) 0 clamp(90px,16vh,150px);text-align:center;color:var(--paper);overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("hero.jpg") center/cover no-repeat;transform:scale(1.06);animation:heroZoom 16s var(--ease) forwards}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background-color:#2a2722;background-image:var(--hero-img);background-size:cover;background-position:center;background-repeat:no-repeat;transform:scale(1.06);animation:heroZoom 16s var(--ease) forwards}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,17,14,.5),rgba(18,17,14,.32) 42%,rgba(18,17,14,.74))}
 @keyframes heroZoom{to{transform:scale(1)}}
 .hero .kicker{color:rgba(243,240,231,.86);margin-bottom:26px;opacity:0;animation:fadeUp .9s var(--ease) .1s forwards}
@@ -82,23 +82,6 @@ header .wrap{display:flex;align-items:center;justify-content:space-between}
 .trip-go{font-family:var(--disp);font-size:14px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:8px;transition:gap .25s var(--ease)}
 .trip:hover .trip-go{gap:14px;color:var(--trip-c,var(--accent))}
 
-/* 입장 퀴즈 게이트 */
-#gate{position:fixed;inset:0;z-index:5000;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;transition:opacity .6s var(--ease),visibility .6s var(--ease)}
-#gate.pass{opacity:0;visibility:hidden}
-.gate-card{max-width:460px;width:100%}
-.gate-eyebrow{font-family:var(--disp);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);margin-bottom:22px}
-.gate-eyebrow::before,.gate-eyebrow::after{content:"—";margin:0 10px;color:var(--line-2)}
-.gate-q{font-family:var(--disp);font-size:clamp(26px,5.4vw,44px);font-weight:800;letter-spacing:-0.02em;line-height:1.15;color:var(--ink)}
-.gate-q .accent{color:var(--accent)}
-.gate-form{display:flex;gap:10px;margin-top:34px}
-.gate-input{flex:1;min-width:0;height:54px;padding:0 18px;border:1px solid var(--line-2);border-radius:4px;font-family:var(--body);font-size:16px;background:var(--surface);color:var(--ink)}
-.gate-input:focus{outline:none;border-color:var(--accent)}
-.gate-btn{height:54px;padding:0 26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:4px;font-family:var(--disp);font-weight:600;font-size:15px;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap}
-.gate-btn:hover{background:transparent;color:var(--ink)}
-.gate-msg{min-height:22px;margin-top:16px;font-size:14px;color:var(--accent);font-weight:500}
-.gate-shake{animation:gshake .4s}
-@keyframes gshake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-8px)}40%,60%{transform:translateX(8px)}}
-@media(max-width:480px){.gate-form{flex-direction:column}.gate-btn{width:100%}}
 
 /* People carousel */
 .people{padding:clamp(34px,6vw,60px) 0 0;opacity:0;animation:fadeUp 1s var(--ease) .7s forwards}
@@ -123,19 +106,6 @@ footer a:hover{color:var(--accent)}
 </style>
 </head>
 <body>
-<!-- 입장 퀴즈 게이트 -->
-<div id="gate">
-  <div class="gate-card">
-    <div class="gate-eyebrow">늘벗 11기 · 입장 퀴즈</div>
-    <div class="gate-q" id="gateQ"></div>
-    <form class="gate-form" id="gateForm" autocomplete="off">
-      <input class="gate-input" id="gateInput" type="text" placeholder="정답을 입력하세요" aria-label="정답 입력" />
-      <button class="gate-btn" type="submit">입장</button>
-    </form>
-    <div class="gate-msg" id="gateMsg" aria-live="polite"></div>
-  </div>
-</div>
-
 <a href="#trips" class="skip">본문으로 건너뛰기</a>
 
 <header>
@@ -292,6 +262,7 @@ footer a:hover{color:var(--accent)}
   </div>
 </footer>
 
+<script src="assets/crypto.js"></script>
 <script>
 const io=new IntersectionObserver((entries)=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*90);io.unobserve(e.target);}});
@@ -313,64 +284,33 @@ document.querySelectorAll('.trip').forEach(el=>io.observe(el));
   POOLS.forEach(function(p){
     for(var i=1;i<=p.count;i++){
       if(p.skip&&p.skip[i]) continue;
-      pool.push({yr:p.yr, href:p.href, src:p.dir+'/photo'+pad(i)+'.jpg'});
+      pool.push({yr:p.yr, href:p.href, enc:p.dir+'/photo'+pad(i)+'.jpg.enc'});
     }
   });
   for(var i=pool.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=pool[i]; pool[i]=pool[j]; pool[j]=t; }
   var N=Math.min(24,pool.length), html='';
   for(var k=0;k<N;k++){
     var it=pool[k];
-    html+='<a class="pp-item" href="'+it.href+'"><img src="'+it.src+'" loading="lazy" alt="늘벗 11기 '+it.yr+'"><span class="pp-yr">'+it.yr+'</span></a>';
+    html+='<a class="pp-item" href="'+it.href+'"><img alt="늘벗 11기 '+it.yr+'" data-enc="'+it.enc+'"><span class="pp-yr">'+it.yr+'</span></a>';
   }
   ppt.innerHTML=html;
   ppt.setAttribute('aria-hidden','false');
-  ppt.innerHTML+=ppt.innerHTML; // 무한 루프용 복제
+  // 암호 해제 후 각 이미지를 복호화해 표시하고, 완료되면 무한 루프용으로 복제
+  if(window.NBCrypto){
+    var imgs=ppt.querySelectorAll('img[data-enc]'), tasks=[];
+    for(var m=0;m<imgs.length;m++){(function(img){
+      tasks.push(NBCrypto.decryptURL(img.getAttribute('data-enc')).then(function(u){img.src=u;}).catch(function(){}));
+    })(imgs[m]);}
+    Promise.all(tasks).then(function(){ ppt.innerHTML+=ppt.innerHTML; });
+  }
 })();
 
-// 입장 퀴즈 게이트 — 정답 평문 없이 PBKDF2-SHA256(솔트+20만회) 검증값만 저장
-(function(){
-  var SALT='c9b4e49fe8324281b0c623159d41f677', ITERS=200000;
-  var KEYS=['6f8cf787bdf9320956c79f45dd6c1d03a3d023f4e3b46fc721dad6df7a93796d',
-            '26cf8fffc357ac46c22e93dc07e15e18c843034f4cbb551144e22904c5c59e55'];
-  var Q=['상석이의 별명은?','영민이의 별명은?'];
-  var pick=Q[Math.floor(Math.random()*Q.length)];
-  var gate=document.getElementById('gate'); if(!gate) return;
-  var passed=false; try{ passed=sessionStorage.getItem('nb11_gate')==='1'; }catch(e){}
-  if(passed){ gate.classList.add('pass'); setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); },50); return; }
-  document.getElementById('gateQ').innerHTML=pick.replace('별명',"<span class='accent'>별명</span>");
-  document.documentElement.style.overflow='hidden'; document.body.style.overflow='hidden';
-  var form=document.getElementById('gateForm'), inp=document.getElementById('gateInput'),
-      msg=document.getElementById('gateMsg'), btn=form.querySelector('.gate-btn');
-  setTimeout(function(){ inp.focus(); },350);
-  function norm(s){ return (s||'').normalize('NFC').replace(/\s+/g,''); }
-  function toHex(buf){ return Array.prototype.map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2);}).join(''); }
-  function hexBytes(h){ var a=new Uint8Array(h.length/2); for(var i=0;i<a.length;i++) a[i]=parseInt(h.substr(i*2,2),16); return a; }
-  function verify(ans){
-    if(!(window.crypto&&crypto.subtle)) return Promise.resolve(false);
-    return crypto.subtle.importKey('raw', new TextEncoder().encode(norm(ans)), {name:'PBKDF2'}, false, ['deriveBits'])
-      .then(function(k){ return crypto.subtle.deriveBits({name:'PBKDF2',salt:hexBytes(SALT),iterations:ITERS,hash:'SHA-256'}, k, 256); })
-      .then(function(bits){ return KEYS.indexOf(toHex(bits))>=0; });
-  }
-  function fail(){
-    msg.textContent='정답이 아니에요. 다시 시도해 주세요.';
-    var c=gate.querySelector('.gate-card'); c.classList.remove('gate-shake'); void c.offsetWidth; c.classList.add('gate-shake');
-    inp.select();
-  }
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    btn.disabled=true; msg.textContent='확인 중…';
-    verify(inp.value).then(function(ok){
-      btn.disabled=false;
-      if(ok){
-        try{ sessionStorage.setItem('nb11_gate','1'); }catch(e){}
-        msg.textContent='';
-        gate.classList.add('pass');
-        document.documentElement.style.overflow=''; document.body.style.overflow='';
-        setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); },700);
-      } else { fail(); }
-    }).catch(function(){ btn.disabled=false; fail(); });
-  });
-})();
+// 대문 사진(hero.jpg) 복호화
+if(window.NBCrypto){
+  NBCrypto.decryptURL('hero.jpg.enc').then(function(u){
+    document.documentElement.style.setProperty('--hero-img','url("'+u+'")');
+  }).catch(function(){});
+}
 </script>
 </body>
 </html>
