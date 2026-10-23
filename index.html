@@ -39,16 +39,19 @@ header .wrap{display:flex;align-items:center;justify-content:space-between}
 @media(max-width:560px){.brand-sub{display:none}}
 
 /* HERO */
-.hero{position:relative;padding:150px 0 70px;text-align:center}
-.hero .kicker{margin-bottom:26px;opacity:0;animation:fadeUp .9s var(--ease) .1s forwards}
-.hero .kicker::before,.hero .kicker::after{content:"—";margin:0 10px;color:var(--line-2)}
-.hero-title{font-family:var(--disp);font-weight:800;letter-spacing:-0.035em;line-height:.95;font-size:clamp(52px,12vw,160px)}
+.hero{position:relative;padding:clamp(180px,27vh,280px) 0 clamp(90px,16vh,150px);text-align:center;color:var(--paper);overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("hero.jpg") center/cover no-repeat;transform:scale(1.06);animation:heroZoom 16s var(--ease) forwards}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,17,14,.5),rgba(18,17,14,.32) 42%,rgba(18,17,14,.74))}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero .kicker{color:rgba(243,240,231,.86);margin-bottom:26px;opacity:0;animation:fadeUp .9s var(--ease) .1s forwards}
+.hero .kicker::before,.hero .kicker::after{content:"—";margin:0 10px;color:rgba(243,240,231,.5)}
+.hero-title{font-family:var(--disp);font-weight:800;letter-spacing:-0.035em;line-height:.95;font-size:clamp(52px,12vw,160px);text-shadow:0 2px 36px rgba(0,0,0,.4)}
 .hero-title .l{display:block;overflow:hidden}
 .hero-title .l span{display:block;transform:translateY(105%);animation:reveal 1.05s var(--ease) forwards}
 .hero-title .l:nth-child(2) span{animation-delay:.1s}
 .hero-title em{font-style:normal;color:var(--accent)}
 @keyframes reveal{to{transform:translateY(0)}}
-.hero-sub{margin:30px auto 0;max-width:600px;font-size:clamp(15px,1.9vw,18px);color:var(--ink2);opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
+.hero-sub{margin:30px auto 0;max-width:600px;font-size:clamp(15px,1.9vw,18px);color:rgba(243,240,231,.92);opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* TRIPS */
